@@ -43,6 +43,7 @@ exceeds minimum amount set by configuration wizard.
         'view/sale_conf_view.xml'
     ],
     'test': [
+        'test/sale_limit_amount_test.yml'
     ],
     'demo': [],
     'installable': True,

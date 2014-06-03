@@ -36,6 +36,14 @@ class sale_order(osv.Model):
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
             partner_company = partner.is_company
-            if (partner_company and partner.vat) or (not partner_company and partner.fax):
+            if (partner_company and partner.vat) or (not partner_company and partner.vat):
+                return True
+        return False
+
+    def check_ruc(self, cr, uid, ids, context=None):
+        for sale_order in self.browse(cr, uid, ids, context=context):
+            partner = sale_order.partner_id.commercial_partner_id
+            partner_company = partner.is_company
+            if (partner_company and partner.vat) or (not partner_company):
                 return True
         return False
