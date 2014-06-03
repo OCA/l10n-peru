@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_validation_invoice_configuration" model="ir.ui.view">
+            <field name="name">Invoice Application</field>
+            <field name="model">account.config.settings</field>
+            <field name="inherit_id" ref="account.view_account_config_settings"/>
+            <field name="arch" type="xml">
+                <group name="bank_cash" position="after">
+                    <separator string="Validation Amount"/>
+                    <group>
+                        <label for="id" string="Validation amount"/>
+                        <div>
+                            <div>
+                                <field name="limit_amount" class="oe_inline"/>
+                                <label for="limit_amount"/>
+                            </div>
+                        </div>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

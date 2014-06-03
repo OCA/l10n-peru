@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="act_validation_check_inv" model="workflow.activity">
+            <field name="wkf_id" ref="account.wkf"/>
+            <field name="name">CheckForRUC</field>
+            <field name="kind">dummy</field>
+        </record>
+        
+        <record id="trans_confirmed_validation_inv" model="workflow.transition">
+            <field name="act_from" ref="account.act_draft"/>
+            <field name="act_to" ref="act_validation_check_inv"/>
+            <field name="condition">amount_total &gt;= 700</field>
+        </record>
+
+        <record id="trans_draft_wait_inv" model="workflow.transition">
+            <field name="act_from" ref="act_validation_check_inv"/>
+            <field name="act_to" ref="account.act_open"/>
+            <field name="condition">check_ruc_dni()</field>
+            <field name="signal">invoice_open</field>
+        </record>
+
+        <record id="trans_draft_wait2_inv" model="workflow.transition">
+            <field name="act_from" ref="act_validation_check_inv"/>
+            <field name="act_to" ref="account.act_open"/>
+            <field name="split_mode">OR</field>
+            <field name="signal">invoice_open</field>
+            <field name="condition">amount_total &lt; 700</field>
+        </record>
+
+    </data>
+</openerp>
