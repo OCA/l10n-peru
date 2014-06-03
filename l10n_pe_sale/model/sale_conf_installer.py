@@ -24,29 +24,32 @@
 #
 ##############################################################################
 
-{
-    'name' : 'RUC and DIN Validation on Sales',
-    'version' : '1.1',
-    'category': 'Sale Management',
-    'depends' : ['base','sale'],
-    'author' : 'Vauxoo',
-    'description': """
-Validation for sale when exceeding minimum amount.
-=========================================================
 
-This module modifies the sale workflow in order to validate RUC and DIN in sale that
-exceeds minimum amount set by configuration wizard.
-    """,
-    'website': 'http://www.openerp.com',
-    'data': [
-        'workflow/sale_workflow.xml',
-        'view/sale_conf_view.xml'
-    ],
-    'test': [
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False
-}
+from openerp.osv import fields, osv
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+class sale_configuration(osv.osv_memory):
+    _inherit = 'sale.config.settings'
+    
+    _columns = {
+    'limit_amount': fields.integer('limit to require a validation of ruc or dni',required=True,
+        help="Amount after which validation of sale is required."),
+    }
+
+    _defaults = {
+        'limit_amount': 700,
+    }
+
+    def get_default_limit_amount(self, cr, uid, fields, context=None):
+        ir_model_data = self.pool.get('ir.model.data')
+        transition = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_confirmed_validation')
+        field, value = transition.condition.split('>=', 1)
+        return {'limit_amount': int(value)}
+
+    def set_limit_amount(self, cr, uid, ids, context=None):
+        ir_model_data = self.pool.get('ir.model.data')
+        config = self.browse(cr, uid, ids[0], context)
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_confirmed_validation')
+        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait2')
+        waiting.write({'condition': 'amount_total < %s' % config.limit_amount})
+

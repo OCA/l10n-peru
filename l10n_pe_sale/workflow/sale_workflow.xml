@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        
-        <record id="act_double_wait" model="workflow.activity">
+
+        <record id="act_validation_check" model="workflow.activity">
             <field name="wkf_id" ref="sale.wkf_sale"/>
             <field name="name">CheckForRUC</field>
             <field name="kind">dummy</field>
         </record>
         
-         <record id="trans_confirmed_double_check" model="workflow.transition">
+        <record id="trans_confirmed_validation" model="workflow.transition">
             <field name="act_from" ref="sale.act_draft"/>
-            <field name="act_to" ref="act_double_wait"/>
+            <field name="act_to" ref="act_validation_check"/>
             <field name="condition">amount_total &gt;= 700</field>
         </record>
-        
+
         <record id="trans_draft_wait" model="workflow.transition">
-            <field name="act_from" ref="act_double_wait"/>
+            <field name="act_from" ref="act_validation_check"/>
             <field name="act_to" ref="sale.act_router"/>
             <field name="condition">check_ruc_dni()</field>
             <field name="signal">order_confirm</field>
+        </record>
+
+        <record id="trans_draft_wait2" model="workflow.transition">
+            <field name="act_from" ref="act_validation_check"/>
+            <field name="act_to" ref="sale.act_router"/>
+            <field name="split_mode">OR</field>
+            <field name="signal">order_confirm</field>
+            <field name="condition">amount_total &lt; 700</field>
         </record>
 
     </data>
