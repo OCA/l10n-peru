@@ -41,15 +41,17 @@ class sale_configuration(osv.osv_memory):
 
     def get_default_limit_amount(self, cr, uid, fields, context=None):
         ir_model_data = self.pool.get('ir.model.data')
-        transition = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_confirmed_validation')
-        field, value = transition.condition.split('>=', 1)
-        return {'limit_amount': int(value)}
+        transition = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
+        value = transition.condition.split()
+        return {'limit_amount': int(value[1])}
 
     def set_limit_amount(self, cr, uid, ids, context=None):
         ir_model_data = self.pool.get('ir.model.data')
         config = self.browse(cr, uid, ids[0], context)
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_confirmed_validation')
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
         waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait2')
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_wait_router')
         waiting.write({'condition': 'amount_total < %s' % config.limit_amount})
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_sent_wait')
+        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
 

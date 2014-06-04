@@ -26,6 +26,7 @@
 
 
 from openerp.osv import fields, osv
+from openerp.tools.translate import _
 
 
 class sale_order(osv.Model):
@@ -35,8 +36,7 @@ class sale_order(osv.Model):
     def check_ruc_dni(self, cr, uid, ids, context=None):
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
-            partner_company = partner.is_company
-            if (partner_company and partner.vat) or (not partner_company and partner.vat):
+            if partner.vat:
                 return True
         return False
 
@@ -47,3 +47,15 @@ class sale_order(osv.Model):
             if (partner_company and partner.vat) or (not partner_company):
                 return True
         return False
+    
+    def show_message_ruc_dni(self, cr, uid, ids, context=None):
+        result = self.check_ruc(cr, uid, ids, context=context)
+        if not result:
+            raise osv.except_osv(_('Invalid Action!'), _('Not RUC set'))
+
+    def show_message_ruc_dni2(self, cr, uid, ids, context=None):
+        result = self.check_ruc_dni(cr, uid, ids, context=context)
+        if not result:
+            raise osv.except_osv(_('Invalid Action!'), _('Not RUC or DNI set'))
+        
+        

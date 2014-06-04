@@ -2,42 +2,67 @@
 <openerp>
     <data>
 
+        <record id="act_validation_wait" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">WaitForRUC</field>
+            <field name="kind">dummy</field>
+        </record>
+        
         <record id="act_validation_check" model="workflow.activity">
             <field name="wkf_id" ref="sale.wkf_sale"/>
             <field name="name">CheckForRUC</field>
-            <field name="kind">dummy</field>
-        </record>
-
-        <record id="sale.trans_draft_router" model="workflow.transition">
-            <field name="act_from" ref="sale.act_draft"/>
-            <field name="act_to" ref="act_validation_check"/>
-            <field name="condition">True</field>
-            <field name="signal">order_confirm</field>
-        </record>
-
-        <record id="sale.trans_sent_router" model="workflow.transition">
-            <field name="act_from" ref="sale.act_sent"/>
-            <field name="act_to" ref="act_validation_check"/>
-            <field name="condition">True</field>
-            <field name="signal">order_confirm</field>
+            <field name="kind">function</field>
+            <field name="action">show_message_ruc_dni2()</field>
         </record>
 
         <record id="trans_draft_wait" model="workflow.transition">
-            <field name="act_from" ref="act_validation_check"/>
-            <field name="act_to" ref="sale.act_router"/>
-            <field name="condition">amount_total &gt;= 700 and check_ruc_dni()</field>
+            <field name="act_from" ref="sale.act_draft"/>
+            <field name="act_to" ref="act_validation_wait"/>
+            <field name="condition">amount_total &gt;= 700</field>
+        </record>
+        
+        <record id="trans_sent_wait" model="workflow.transition">
+            <field name="act_from" ref="sale.act_sent"/>
+            <field name="act_to" ref="act_validation_wait"/>
+            <field name="condition">amount_total &gt;= 700</field>
+        </record>
+        
+        <record id="trans_wait_check" model="workflow.transition">
+            <field name="act_from" ref="act_validation_wait"/>
+            <field name="act_to" ref="act_validation_check"/>
+            <field name="condition">True</field>
+            <field name="signal">order_confirm</field>
         </record>
 
-        <record id="trans_draft_wait2" model="workflow.transition">
-            <field name="act_from" ref="act_validation_check"/>
+        <record id="trans_wait_router" model="workflow.transition">
+            <field name="act_from" ref="act_validation_wait"/>
             <field name="act_to" ref="sale.act_router"/>
-            <field name="condition">amount_total &lt; 700 and check_ruc()</field>
+            <field name="condition">amount_total &lt; 700</field>
+            <field name="signal">order_confirm</field>
         </record>
 
-        <record id="trans_check_cancel" model="workflow.transition">
-            <field name="act_from" ref="act_validation_check"/>
+        <record id="trans_wait_sent" model="workflow.transition">
+            <field name="act_from" ref="act_validation_wait"/>
+            <field name="act_to" ref="sale.act_sent"/>
+            <field name="condition">True</field>
+            <field name="signal">quotation_sent</field>
+        </record>
+
+        <record id="trans_wait_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_validation_wait"/>
             <field name="act_to" ref="sale.act_cancel"/>
             <field name="signal">cancel</field>
+        </record>
+
+        <record id="trans_check_router" model="workflow.transition">
+            <field name="act_from" ref="act_validation_check"/>
+            <field name="act_to" ref="sale.act_router"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="sale.act_router" model="workflow.activity">
+            <field name="action">action_wait()
+show_message_ruc_dni()</field>
         </record>
 
     </data>
