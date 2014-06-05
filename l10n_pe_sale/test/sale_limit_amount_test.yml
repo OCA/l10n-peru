@@ -99,3 +99,62 @@
     sale_order = self.browse(cr, uid, ref("sale_order22"))
     assert sale_order.state <> "draft", "Sale should not be draft state."
     log("State sale order is %s" % sale_order.state)
+-
+  I set partner like company and not vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': ''})
+-
+  I create sale order with any amount
+-
+  !record {model: sale.order, id: sale_order3}:
+    <<: *sale_order
+-
+  I validate sale order
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    wf_service = netsvc.LocalService("workflow")
+    log("Sale order amount is %s" % sale_order.amount_total)
+    try:
+        self.show_message_ruc_dni(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that Sale should not be confirm.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    assert sale_order.state == "draft", "Sale should not be diferent of draft state."
+    log("State of sale order is %s" % sale_order.state)
+
+-
+  I set partner like company and vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': 'vat'})
+-
+  I validate sale order again
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that Sale should not be draft.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    assert sale_order.state <> "draft", "Sale should not be draft state."
+    log("State of sale order is %s" % sale_order.state)
