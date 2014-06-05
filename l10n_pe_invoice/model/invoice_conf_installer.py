@@ -54,4 +54,6 @@ class account_configuration(osv.osv_memory):
         waiting.write({'condition': 'amount_total < %s' % config.limit_amount})
         waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_invoice', 'trans_proforma2_wait')
         waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
+        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_invoice', 'trans_wait_check')
+        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
 

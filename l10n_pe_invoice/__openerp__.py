@@ -43,6 +43,7 @@ exceeds minimum amount set by configuration wizard.
         'view/invoice_conf_view.xml'
     ],
     'test': [
+        'test/limit_amount_inv.yml'
     ],
     'demo': [],
     'installable': True,

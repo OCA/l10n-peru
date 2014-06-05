@@ -26,6 +26,7 @@
             <field name="act_to" ref="act_validation_check"/>
             <field name="condition">True</field>
             <field name="signal">invoice_open</field>
+            <field name="condition">amount_total &gt;= 700</field>
         </record>
 
         <record id="trans_wait_open" model="workflow.transition">
