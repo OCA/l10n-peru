@@ -34,6 +34,7 @@ class account_invoice(osv.Model):
     
     def check_ruc_dni(self, cr, uid, ids, context=None):
         for inv in self.browse(cr, uid, ids, context=context):
+            print inv.type,'inv.type'
             if inv.type in ('out_invoice', 'out_refund'):
                 partner = inv.partner_id.commercial_partner_id
                 if partner.vat:
@@ -57,8 +58,10 @@ class account_invoice(osv.Model):
         result = self.check_ruc(cr, uid, ids, context=context)
         if not result:
             raise osv.except_osv(_('Invalid Action!'), _('Not RUC set'))
+        return True
 
     def show_message_ruc_dni2(self, cr, uid, ids, context=None):
         result = self.check_ruc_dni(cr, uid, ids, context=context)
         if not result:
             raise osv.except_osv(_('Invalid Action!'), _('Not RUC or DNI set'))
+        return True

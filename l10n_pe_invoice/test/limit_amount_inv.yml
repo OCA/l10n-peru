@@ -152,3 +152,39 @@
     inv = self.browse(cr, uid, ref("account_invoice_customer12"))
     assert inv.state <> "draft", "customer invoice should not be draft state."
     log("State of customer invoice is %s" % inv.state)
+-
+  I create a supplier invoice without any validation
+-
+  !context
+    'default_type': 'in_invoice'
+    'type': 'in_invoice'
+-
+  !record {model: account.invoice, id: account_invoice_supplier10, view: account.invoice_supplier_form}:
+    account_id: account.a_pay
+    check_total: 3000.0
+    currency_id: base.EUR
+    invoice_line:
+      - account_id: account.a_expense
+        name: '[PCSC234] PC Assemble SC234'
+        price_unit: 300.0
+        product_id: product.product_product_3
+        quantity: 10.0
+        uos_id: product.product_uom_unit
+    journal_id: account.expenses_journal
+    partner_id: base.res_partner_12
+    reference_type: none
+
+-
+  I check that Initially supplier invoice state is "Draft"
+-
+  !assert {model: account.invoice, id: account_invoice_supplier10}:
+    - state == 'draft'
+-
+  I change the state of invoice to open by clicking Validate button
+-
+  !workflow {model: account.invoice, action: invoice_open, ref: account_invoice_supplier10}
+-
+  I check that the invoice state is now "Open"
+-
+  !assert {model: account.invoice, id: account_invoice_supplier10}:
+    - state == 'open'
