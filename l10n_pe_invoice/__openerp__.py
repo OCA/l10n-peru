@@ -28,7 +28,7 @@
     'name' : 'RUC and DNI Validation on Invoice',
     'version' : '1.1',
     'category': 'Invoice Management',
-    'depends' : ['base','account'],
+    'depends' : ['base','account','base_vat'],
     'author' : 'Vauxoo',
     'description': """
 Validation for invoice when exceeding minimum amount.
