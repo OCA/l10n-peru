@@ -6,7 +6,7 @@
 #    All Rights Reserved.
 #    info@vauxoo.com
 ############################################################################
-#    Coded by: Julio Serna (julio@vauxoo.com)
+#    Coded by: Julio (julio@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -24,30 +24,5 @@
 #
 ##############################################################################
 
-{
-    'name' : 'RUC and DIN Validation on Sales',
-    'version' : '1.1',
-    'category': 'Sale Management',
-    'depends' : ['base','sale', 'base_vat'],
-    'author' : 'Vauxoo',
-    'description': """
-Validation for sale when exceeding minimum amount.
-=========================================================
-
-This module modifies the sale workflow in order to validate RUC and DIN in sale that
-exceeds minimum amount set by configuration wizard.
-    """,
-    'website': 'http://www.openerp.com',
-    'data': [
-        'workflow/sale_workflow.xml',
-        'view/sale_conf_view.xml'
-    ],
-    'test': [
-        'test/sale_limit_amount_test.yml'
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False
-}
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+import invoice
+import invoice_conf_installer

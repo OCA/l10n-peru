@@ -2,7 +2,7 @@
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
-#    Copyright (c) 2012 Vauxoo - http://www.vauxoo.com
+#    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
 #    info@vauxoo.com
 ############################################################################
@@ -22,32 +22,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#############################################################################
 
-{
-    'name' : 'RUC and DIN Validation on Sales',
-    'version' : '1.1',
-    'category': 'Sale Management',
-    'depends' : ['base','sale', 'base_vat'],
-    'author' : 'Vauxoo',
-    'description': """
-Validation for sale when exceeding minimum amount.
-=========================================================
 
-This module modifies the sale workflow in order to validate RUC and DIN in sale that
-exceeds minimum amount set by configuration wizard.
-    """,
-    'website': 'http://www.openerp.com',
-    'data': [
-        'workflow/sale_workflow.xml',
-        'view/sale_conf_view.xml'
-    ],
-    'test': [
-        'test/sale_limit_amount_test.yml'
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False
-}
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+import model

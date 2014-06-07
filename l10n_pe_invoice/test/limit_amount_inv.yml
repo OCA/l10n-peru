@@ -1,0 +1,190 @@
+-
+  I set partner like not company and not vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': ''})
+
+-
+  I create a customer invoice < 700
+-
+  !record {model: account.invoice, id: account_invoice_customer10 , view: account.invoice_form}: &account_invoice
+    payment_term: account.account_payment_term_advance
+    journal_id: account.sales_journal
+    partner_id: base.res_partner_3
+    reference_type: none
+    name: 'Test Customer Invoice'
+    invoice_line:
+      - product_id: product.product_product_5
+        quantity: 10.0
+        price_unit: 1
+
+-
+  I check that Initially customer invoice is in the "Draft" state
+-
+  !assert {model: account.invoice, id: account_invoice_customer10}:
+    - state == 'draft'
+-
+  I validate customer invoice
+-
+  !workflow {model: account.invoice, action: invoice_open, ref: account_invoice_customer10}
+-
+  I check that customer invoice should be validate.
+-
+  !python {model: account.invoice}: |
+    inv = self.browse(cr, uid, ref("account_invoice_customer10"))
+    print inv.amount_total
+    assert inv.state <> "draft", "customer invoice should not be in draft state."
+-
+  I create a customer invoice mount >= 700
+-
+  !record {model: account.invoice, id: account_invoice_customer11}:
+    <<: *account_invoice
+    invoice_line: 
+      - product_id: product.product_product_5
+        price_unit: 801
+-
+  I check that Initially customer invoice is in the "Draft" state
+-
+  !assert {model: account.invoice, id: account_invoice_customer11}:
+    - state == 'draft'
+-
+  I validate customer invoice
+-
+  !python {model: account.invoice}: |
+    import netsvc
+    from openerp.osv import osv
+    inv = self.browse(cr, uid, ref("account_invoice_customer11"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni2(cr, uid, [inv.id])
+        wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that customer invoice should not be validate.
+-
+  !python {model: account.invoice}: |
+    inv = self.browse(cr, uid, ref("account_invoice_customer11"))
+    assert inv.state == "draft", "customer invoice should not be diferent of draft state."
+    log("State of customer invoice is %s" % inv.state)
+-
+  I set partner like not company and vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': 'vat'})
+-
+  I validate customer invoice again
+-
+  !python {model: account.invoice}: |
+    import netsvc
+    from openerp.osv import osv
+    inv = self.browse(cr, uid, ref("account_invoice_customer11"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni2(cr, uid, [inv.id])
+        wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
+    except osv.except_osv:
+        assert False, "customer invoice in wrong state"
+-
+  I check that customer invoice should diferenct of draft.
+-
+  !python {model: account.invoice}: |
+    inv = self.browse(cr, uid, ref("account_invoice_customer11"))
+    assert inv.state <> "draft", "customer invoice should not be draft state."
+    log("State customer invoice is %s" % inv.state)
+-
+  I set partner like company and not vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': ''})
+-
+  I create customer invoice with any amount
+-
+  !record {model: account.invoice, id: account_invoice_customer12}:
+    <<: *account_invoice
+-
+  I validate customer invoice
+-
+  !python {model: account.invoice}: |
+    import netsvc
+    from openerp.osv import osv
+    inv = self.browse(cr, uid, ref("account_invoice_customer12"))
+    wf_service = netsvc.LocalService("workflow")
+    log("customer invoice amount is %s" % inv.amount_total)
+    try:
+        self.show_message_ruc_dni(cr, uid, [inv.id])
+        wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that customer invoice should not be validate.
+-
+  !python {model: account.invoice}: |
+    inv = self.browse(cr, uid, ref("account_invoice_customer12"))
+    assert inv.state == "draft", "customer invoice should not be diferent of draft state."
+    log("State of customer invoice is %s" % inv.state)
+-
+  I set partner like company and vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': 'vat'})
+-
+  I validate customer invoice order again
+-
+  !python {model: account.invoice}: |
+    import netsvc
+    from openerp.osv import osv
+    inv = self.browse(cr, uid, ref("account_invoice_customer12"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni(cr, uid, [inv.id])
+        wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that customer invoice should not be draft.
+-
+  !python {model: account.invoice}: |
+    inv = self.browse(cr, uid, ref("account_invoice_customer12"))
+    assert inv.state <> "draft", "customer invoice should not be draft state."
+    log("State of customer invoice is %s" % inv.state)
+-
+  I create a supplier invoice without any validation
+-
+  !context
+    'default_type': 'in_invoice'
+    'type': 'in_invoice'
+-
+  !record {model: account.invoice, id: account_invoice_supplier10, view: account.invoice_supplier_form}:
+    account_id: account.a_pay
+    check_total: 3000.0
+    currency_id: base.EUR
+    invoice_line:
+      - account_id: account.a_expense
+        name: '[PCSC234] PC Assemble SC234'
+        price_unit: 300.0
+        product_id: product.product_product_3
+        quantity: 10.0
+        uos_id: product.product_uom_unit
+    journal_id: account.expenses_journal
+    partner_id: base.res_partner_12
+    reference_type: none
+
+-
+  I check that Initially supplier invoice state is "Draft"
+-
+  !assert {model: account.invoice, id: account_invoice_supplier10}:
+    - state == 'draft'
+-
+  I change the state of invoice to open by clicking Validate button
+-
+  !workflow {model: account.invoice, action: invoice_open, ref: account_invoice_supplier10}
+-
+  I check that the invoice state is now "Open"
+-
+  !assert {model: account.invoice, id: account_invoice_supplier10}:
+    - state == 'open'

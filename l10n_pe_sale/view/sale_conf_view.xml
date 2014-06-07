@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_validation_sale_configuration" model="ir.ui.view">
+            <field name="name">Sale Application</field>
+            <field name="model">sale.config.settings</field>
+            <field name="inherit_id" ref="sale.view_sales_config"/>
+            <field name="arch" type="xml">
+                <group name="Sale" position="after">
+                    <group>
+                        <label for="id2" string="Validation amount"/>
+                        <div>
+                            <div>
+                                <field name="limit_amount" class="oe_inline"/>
+                                <label for="limit_amount"/>
+                            </div>
+                        </div>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

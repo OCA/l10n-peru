@@ -1,0 +1,160 @@
+-
+  I set partner like not company and not vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': ''})
+-
+  I create sale order with amount < 700
+-
+  !record {model: sale.order, id: sale_order11}: &sale_order
+    partner_id: base.res_partner_2
+    note: Invoice after delivery
+    payment_term: account.account_payment_term
+    order_line: 
+      - product_id: product.product_product_7
+        product_uom_qty: 1
+        price_unit: 3
+-
+  I verify that the onchange was correctly triggered
+-
+  !assert {model: sale.order, id: sale_order11, string: The onchange function of product was not correctly triggered}:
+    - order_line[0].name == u'[LCD17] 17\u201d LCD Monitor'
+    - order_line[0].price_unit == 3
+    - order_line[0].product_uom_qty == 1
+    - order_line[0].product_uom.id == ref('product.product_uom_unit')
+
+-
+  I validate sale order
+-
+  !workflow {model: sale.order, action: order_confirm, ref: sale_order11}
+-
+  I check that Sale should be confirm.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order11"))
+    assert sale_order.state <> "draft", "Sale should not be in draft state."
+
+-
+  I create sale order with amount >= 700
+-
+  !record {model: sale.order, id: sale_order22}:
+    <<: *sale_order
+    order_line: 
+      - product_id: product.product_product_7
+        price_unit: 801
+-
+  I verify that the onchange was correctly triggered
+-
+  !assert {model: sale.order, id: sale_order22, string: The onchange function of product was not correctly triggered}:
+    - order_line[0].name == u'[LCD17] 17\u201d LCD Monitor'
+    - order_line[0].price_unit == 801
+    - order_line[0].product_uom_qty == 1
+    - order_line[0].product_uom.id == ref('product.product_uom_unit')
+
+-
+  I validate sale order
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni2(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        pass
+      
+-
+  I check that Sale should not be confirm.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    assert sale_order.state == "draft", "Sale should not be diferent of draft state."
+    log("State of sale order is %s" % sale_order.state)
+-
+  I set partner like not company and vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': 'vat'})
+-
+  I validate sale order again
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni2(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        assert False, "Sale order in wrong state"
+-
+  I check that Sale should diferenct of draft.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    assert sale_order.state <> "draft", "Sale should not be draft state."
+    log("State sale order is %s" % sale_order.state)
+-
+  I set partner like company and not vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': ''})
+-
+  I create sale order with any amount
+-
+  !record {model: sale.order, id: sale_order3}:
+    <<: *sale_order
+-
+  I validate sale order
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    wf_service = netsvc.LocalService("workflow")
+    log("Sale order amount is %s" % sale_order.amount_total)
+    try:
+        self.show_message_ruc_dni(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that Sale should not be confirm.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    assert sale_order.state == "draft", "Sale should not be diferent of draft state."
+    log("State of sale order is %s" % sale_order.state)
+
+-
+  I set partner like company and vat.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_2"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': True, 'vat': 'vat'})
+-
+  I validate sale order again
+-
+  !python {model: sale.order}: |
+    import netsvc
+    from openerp.osv import osv
+    sale_order = self.browse(cr, uid, ref("sale_order3"))
+    wf_service = netsvc.LocalService("workflow")
+    try:
+        self.show_message_ruc_dni(cr, uid, [sale_order.id])
+        wf_service.trg_validate(uid, 'sale.order', sale_order.id, 'order_confirm', cr)
+    except osv.except_osv:
+        pass
+-
+  I check that Sale should not be draft.
+-
+  !python {model: sale.order}: |
+    sale_order = self.browse(cr, uid, ref("sale_order22"))
+    assert sale_order.state <> "draft", "Sale should not be draft state."
+    log("State of sale order is %s" % sale_order.state)

@@ -25,25 +25,25 @@
 ##############################################################################
 
 {
-    'name' : 'RUC and DIN Validation on Sales',
+    'name' : 'RUC and DNI Validation on Invoice',
     'version' : '1.1',
-    'category': 'Sale Management',
-    'depends' : ['base','sale', 'base_vat'],
+    'category': 'Invoice Management',
+    'depends' : ['base','account','base_vat'],
     'author' : 'Vauxoo',
     'description': """
-Validation for sale when exceeding minimum amount.
+Validation for invoice when exceeding minimum amount.
 =========================================================
 
-This module modifies the sale workflow in order to validate RUC and DIN in sale that
+This module modifies the invoice workflow in order to validate RUC and DNI in Invoice that
 exceeds minimum amount set by configuration wizard.
     """,
     'website': 'http://www.openerp.com',
     'data': [
-        'workflow/sale_workflow.xml',
-        'view/sale_conf_view.xml'
+        'workflow/invoice_workflow.xml',
+        'view/invoice_conf_view.xml'
     ],
     'test': [
-        'test/sale_limit_amount_test.yml'
+        'test/limit_amount_inv.yml'
     ],
     'demo': [],
     'installable': True,
