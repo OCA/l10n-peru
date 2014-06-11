@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_printer_series_field_journal" model="ir.ui.view">
+            <field name="name">Account Journal Printer Series</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sequence_id']" position='after'>
+                    <field name='printer_series'></field>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
