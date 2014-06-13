@@ -26,3 +26,4 @@
 
 import invoice
 import invoice_conf_installer
+import supplier_invoice_validation
