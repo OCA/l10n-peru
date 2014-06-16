@@ -39,6 +39,7 @@
         'view/res_country_view.xml',
         'view/res_company_view.xml',
         'view/country_data.xml',
+        'security/ir.model.access.csv',
     ],
     'test': [
     ],

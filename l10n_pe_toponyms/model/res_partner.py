@@ -153,7 +153,7 @@ class res_country_province(osv.osv):
             ('code_uniq', 'unique(code)', _('The code of the province must be unique !'))
         ]
         
-class country_district(osv.osv):
+class res_country_district(osv.osv):
     _name = 'res.country.district'
 
     _columns = {
