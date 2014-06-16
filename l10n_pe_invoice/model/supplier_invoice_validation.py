@@ -48,5 +48,5 @@ class account_invoice(osv.Model):
                         return False
         return True
 
-    _constraints = [(_check_reference_field,_("Invalid format \nThe correct format is:\n\t series-#")
+    _constraints = [(_check_reference_field,_("Invalid format \nThe correct format is:\n series-#")
         ,['reference']),]
