@@ -34,7 +34,9 @@
     """,
     "website" : "http://www.vauxoo.com/",
     'data': [
+        'security/l10n_pe_security.xml',
         'data/res_country_data.xml',
+        'view/res_country_view.xml',
         'view/res_company_view.xml',
         'view/country_data.xml',
     ],

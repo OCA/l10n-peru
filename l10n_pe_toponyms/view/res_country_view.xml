@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_country_district_form" model="ir.ui.view">
+            <field name="name">res.country.district.form</field>
+            <field name="model">res.country.district</field>
+            <field name="arch" type="xml">
+                <form string="District" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="province_id"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_country_district_tree" model="ir.ui.view">
+            <field name="name">res.country.district.tree</field>
+            <field name="model">res.country.district</field>
+            <field name="arch" type="xml">
+                <tree string="District">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="province_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_district" model="ir.actions.act_window">
+            <field name="name">Districts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.country.district</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem action="action_district" id="menu_district_partner" parent="base.menu_localisation" sequence="0" groups="group_address_pe"/>
+        
+        <record id="view_country_province_form" model="ir.ui.view">
+            <field name="name">res.country.province.form</field>
+            <field name="model">res.country.province</field>
+            <field name="arch" type="xml">
+                <form string="Province" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="state_id"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="district_ids"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_country_province_tree" model="ir.ui.view">
+            <field name="name">res.country.province.tree</field>
+            <field name="model">res.country.province</field>
+            <field name="arch" type="xml">
+                <tree string="District">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record id="action_provinces" model="ir.actions.act_window">
+            <field name="name">Provinces</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.country.province</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem action="action_provinces" id="menu_province_partner" parent="base.menu_localisation" sequence="0" groups="group_address_pe"/>
+    </data>
+</openerp>
