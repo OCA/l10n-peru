@@ -40,7 +40,8 @@ exceeds minimum amount set by configuration wizard.
     'website': 'http://www.openerp.com',
     'data': [
         'workflow/invoice_workflow.xml',
-        'view/invoice_conf_view.xml'
+        'view/invoice_conf_view.xml',
+        'view/account_invoice_reference_req.xml'
     ],
     'test': [
         'test/limit_amount_inv.yml'

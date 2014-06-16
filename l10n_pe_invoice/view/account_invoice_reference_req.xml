@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_ref_req_invoice_supplier" model="ir.ui.view">
+            <field name="name">Invoice REF Req.</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='reference']" position="attributes">
+                    <attribute name="required">True</attribute>
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -35,7 +35,6 @@ class account_invoice(osv.Model):
     
     def _check_reference_field(self, cr, uid, ids, context=None):
         invoices = self.browse(cr,uid, ids)
-        print 'TEST DEL CONTRAINTTTTTTTTTTTTTTTTTTTT'
         for invoice in invoices:
             if (invoice.type == 'in_invoice'):
                 if(invoice.reference):
@@ -43,12 +42,11 @@ class account_invoice(osv.Model):
                     if (len(ref_split) == 2):
                         ref_izq = ref_split[0]
                         ref_der = ref_split[1]
-                        print ref_split, 'SPLITTTTTTTTT', re.match("[a-zA-Z0-9]+", ref_izq)
-                        print ':::::::::::::', re.match("\d", ref_der)
-                        #~ if re.match("[a-zA-Z0-9]", ref_izq) == None:
-                            #~ print invoice.reference.split('-'), 'ERRRRRRRORRRRR'
-                print 'TEST DEL CONTRAINTTTTTTTTTTTTTTTTTTTT'
+                        if re.match("[a-zA-Z0-9]+$", ref_izq) == None or re.match("[0-9]+$", ref_der) == None:
+                            return False
+                    else:
+                        return False
         return True
 
-    _constraints = [(_check_reference_field,"The instructor can not be also an attendee!"
+    _constraints = [(_check_reference_field,_("Invalid format \nThe correct format is:\n\t series-#")
         ,['reference']),]
