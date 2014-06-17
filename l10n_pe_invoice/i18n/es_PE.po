@@ -78,10 +78,11 @@ msgstr "No se asigno RUC"
 #: constraint:account.invoice:0
 #: code:addons/l10n_pe_invoice/model/supplier_invoice_validation.py:51
 #, python-format
-msgid "Invalid format \n"
+msgid "Invalid value \n"
 "The correct format is:\n"
-" series-#"
-msgstr "Formato inválido \n"
+" [alphanumeric value]-[numeric value]"
+msgstr "Valor inválido \n"
 "El formato correcto es:\n"
-"serie-#"
+"[Valor alfanumérico]-[Valor númerico]"
+
 
