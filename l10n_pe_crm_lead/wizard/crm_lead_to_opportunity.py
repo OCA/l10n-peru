@@ -23,5 +23,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-import model
-import wizard
+from openerp.osv import fields, osv
+
+class crm_lead2opportunity_partner(osv.osv_memory):
+    _inherit = 'crm.lead2opportunity.partner'
+    
+    def _create_partner(self, cr, uid, ids, context=None):
+        res = super(crm_lead2opportunity_partner, self)._create_partner(cr, uid, ids, context=context)
+        if res:
+            crm_lead_obj = self.pool.get('crm.lead')
+            brw_crm = crm_lead_obj.browse(cr, uid, [res.keys()[0]], context=context)[0]
+            self.pool.get('res.partner').write(cr, uid, res.values()[0],
+                {'l10n_pe_district_id': brw_crm.l10n_pe_district_id and\
+                    brw_crm.l10n_pe_district_id.id or False, 
+                'l10n_pe_province_id': brw_crm.l10n_pe_province_id and\
+                    brw_crm.l10n_pe_province_id.id or False}, context=context)
+        return res
+        
