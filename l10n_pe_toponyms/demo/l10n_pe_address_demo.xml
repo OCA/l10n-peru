@@ -9,7 +9,7 @@
             <field name="use_parent_address" eval="0"/>
             <field name="street">Av. La Mar 390</field>
             <field name="street2"></field>
-            <field name="l10n_pe_district_id" ref="l10n_pe_toponyms.PE040110" model="res.country.district">Tu num exterior</field>
+            <field name="l10n_pe_district_id" ref="l10n_pe_toponyms.PE040110" model="res.country.district"></field>
             <field name="l10n_pe_province_id" ref="l10n_pe_toponyms.PE1501" model="res.country.province"></field>
             <field name="zip">18</field>
             <field name="state_id" ref="l10n_pe_toponyms.PE15" model="res.country.state"/>
