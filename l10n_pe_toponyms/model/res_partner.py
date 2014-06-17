@@ -70,7 +70,7 @@ class res_partner(osv.osv):
             if name == 'city_id':
                 city = '<field name="city" modifiers="{&quot;invisible&quot;: true}" placeholder="%s" style="width: 50%%" invisible="1"/><field name="city_id" on_change="onchange_city(city_id)" placeholder="%s" style="width: 40%%"/>' % (city2, city2)
         layouts = {
-            '%(street)s %(l10n_mx_district_id)s %(l10n_mx_province_id)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s': """
+            '%(street)s %(l10n_pe_district_id)s %(l10n_pe_province_id)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s': """
                     <group>
                         <group>
                             <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
