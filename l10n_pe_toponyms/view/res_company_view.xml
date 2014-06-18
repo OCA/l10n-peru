@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <openerp>
+        <data>
+        <record model="ir.ui.view" id="res_company_opl_form_view">
+                <field name="name">res.company.opl.form.view</field>
+                <field name="model">res.company</field>
+                <field name="inherit_id" ref="base.view_company_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='country_id']" position="before">
+                        <div>
+                            <field name="l10n_pe_province_id" placeholder="Province..." class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>
+                            <field name="l10n_pe_district_id" placeholder="District..." class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>
+                        </div>
+                    </xpath>
+                </field>
+            </record>
+        </data>
+</openerp>

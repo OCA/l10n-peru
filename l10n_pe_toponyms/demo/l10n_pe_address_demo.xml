@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="main_pe_address_partner" model="res.partner">
+            <field name="name">GRUPO COMERCIALIZADOR DE FLORES SAC</field>
+            <field name="customer" eval="1"/>
+            <field name="is_company" eval="1"/>
+            <field name="use_parent_address" eval="0"/>
+            <field name="street">Av. La Mar 390</field>
+            <field name="street2"></field>
+            <field name="l10n_pe_district_id" ref="l10n_pe_toponyms.PE040110" model="res.country.district"></field>
+            <field name="l10n_pe_province_id" ref="l10n_pe_toponyms.PE1501" model="res.country.province"></field>
+            <field name="zip">18</field>
+            <field name="state_id" ref="l10n_pe_toponyms.PE15" model="res.country.state"/>
+            <field name="country_id" ref="base.pe"/>
+            <field name="email">servicioalcliente@kukyflor.com</field>
+            <field name="phone">(511) 717-8888</field>
+        </record>
+        
+        <record id="base.main_company" model="res.company">
+            <field name="country_id" ref="base.pe"/>
+        </record>
+        
+    </data>
+</openerp>
