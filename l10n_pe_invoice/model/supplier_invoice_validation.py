@@ -37,16 +37,16 @@ class account_invoice(osv.Model):
         invoices = self.browse(cr,uid, ids)
         for invoice in invoices:
             if (invoice.type == 'in_invoice'):
-                if(invoice.reference):
-                    ref_split = invoice.reference.split('-')
+                if(invoice.supplier_invoice_number):
+                    ref_split = invoice.supplier_invoice_number.split('-')
                     if (len(ref_split) == 2):
-                        ref_izq = ref_split[0]
-                        ref_der = ref_split[1]
-                        if re.match("[a-zA-Z0-9]+$", ref_izq) == None or re.match("[0-9]+$", ref_der) == None:
+                        ref_left = ref_split[0]
+                        ref_right = ref_split[1]
+                        if re.match("[a-zA-Z0-9]+$", ref_left) == None or re.match("[0-9]+$", ref_right) == None:
                             return False
                     else:
                         return False
         return True
 
     _constraints = [(_check_reference_field,_("Invalid value \nThe correct format is:\n [alphanumeric value]-[numeric value]")
-        ,['reference']),]
+        ,['supplier_invoice_number']),]
