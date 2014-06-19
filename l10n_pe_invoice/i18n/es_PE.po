@@ -1,0 +1,88 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* l10n_pe_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-16 18:00+0000\n"
+"PO-Revision-Date: 2014-06-16 18:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pe_invoice
+#: field:account.config.settings,limit_amount:0
+msgid "limit to require a validation of ruc or dni"
+msgstr "Límite para solicitar validación de RUC o DNI"
+
+#. module: l10n_pe_invoice
+#: view:account.invoice:0
+msgid "False"
+msgstr "Falso"
+
+#. module: l10n_pe_invoice
+#: view:account.config.settings:0
+msgid "Validation Amount"
+msgstr "Validación de Monto"
+
+#. module: l10n_pe_invoice
+#: model:ir.model,name:l10n_pe_invoice.model_account_config_settings
+msgid "account.config.settings"
+msgstr "Parámetros de configuración contable"
+
+#. module: l10n_pe_invoice
+#: code:addons/l10n_pe_invoice/model/invoice.py:66
+#, python-format
+msgid "Not RUC or DNI set"
+msgstr "No se asigno RUC o DNI"
+
+#. module: l10n_pe_invoice
+#: code:addons/l10n_pe_invoice/model/invoice.py:60
+#: code:addons/l10n_pe_invoice/model/invoice.py:66
+#, python-format
+msgid "Invalid Action!"
+msgstr "Acción inválida!"
+
+#. module: l10n_pe_invoice
+#: view:account.config.settings:0
+msgid "Validation amount"
+msgstr "Validación de monto"
+
+#. module: l10n_pe_invoice
+#: model:ir.model,name:l10n_pe_invoice.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_pe_invoice
+#: help:account.config.settings,limit_amount:0
+msgid "Amount after which validation of ivnoice is required."
+msgstr "Monto requerido despues de la validación de la factura."
+
+#. module: l10n_pe_invoice
+#: view:account.invoice:0
+msgid "True"
+msgstr "Verdadero"
+
+#. module: l10n_pe_invoice
+#: code:addons/l10n_pe_invoice/model/invoice.py:60
+#, python-format
+msgid "Not RUC set"
+msgstr "No se asigno RUC"
+
+#. module: l10n_pe_invoice
+#: constraint:account.invoice:0
+#: code:addons/l10n_pe_invoice/model/supplier_invoice_validation.py:51
+#, python-format
+msgid "Invalid value \n"
+"The correct format is:\n"
+" [alphanumeric value]-[numeric value]"
+msgstr "Valor inválido \n"
+"El formato correcto es:\n"
+"[Valor alfanumérico]-[Valor númerico]"
+
+

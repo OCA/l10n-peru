@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_sup_inv_num_req_invoice_supplier" model="ir.ui.view">
+            <field name="name">Invoice supplier invoice number Req.</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='supplier_invoice_number']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
