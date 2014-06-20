@@ -35,7 +35,7 @@ class res_partner(osv.Model):
             context = {}
         res = {}
         for partner in self.browse(cr, uid, ids, context=context):
-            res[partner.id] = partner.vat and partner.vat[2:] or False
+            res[partner.id] = partner.vat and partner.vat[3:] or False
         return res
 
     _columns = {
