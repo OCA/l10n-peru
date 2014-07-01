@@ -38,12 +38,6 @@ class res_partner(osv.osv):
             domain="[('province_id','=',l10n_pe_province_id)]"),
     }
     
-    def _address_fields(self, cr, uid, context=None):
-        "Returns the list of the address fields that synchronizes from the parent when the flag is set use_parent_address."
-        res = super(res_partner, self)._address_fields(cr, uid, context=None)
-        res.extend(['l10n_pe_province_id', 'l10n_pe_district_id'])
-        return res
-
     def _get_default_country_id(self, cr, uid, context=None):
         country_obj = self.pool.get('res.country')
         ids = country_obj.search(cr, uid, [('code', '=', 'PE'), ], limit=1)
@@ -70,7 +64,7 @@ class res_partner(osv.osv):
             if name == 'city_id':
                 city = '<field name="city" modifiers="{&quot;invisible&quot;: true}" placeholder="%s" style="width: 50%%" invisible="1"/><field name="city_id" on_change="onchange_city(city_id)" placeholder="%s" style="width: 40%%"/>' % (city2, city2)
         layouts = {
-            '%(street)s %(l10n_pe_district_id)s %(l10n_pe_province_id)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s': """
+            'PE%(street)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s': """
                     <group>
                         <group>
                             <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
@@ -134,7 +128,7 @@ class res_partner(osv.osv):
                 'l10n_pe_province_id', 'l10n_pe_district_id'], context)
             res['fields'].update(fields_get)
         return res
-
+        
     _defaults = {
         'country_id': _get_default_country_id,
     }
