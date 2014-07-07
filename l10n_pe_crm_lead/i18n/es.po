@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-16 22:57+0000\n"
-"PO-Revision-Date: 2014-06-16 22:57+0000\n"
+"POT-Creation-Date: 2014-07-07 22:46+0000\n"
+"PO-Revision-Date: 2014-07-07 22:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,12 +31,22 @@ msgid "District..."
 msgstr "Distrito..."
 
 #. module: l10n_pe_crm_lead
-#: model:ir.model,name:l10n_pe_crm_lead.model_crm_lead
-msgid "Lead/Opportunity"
-msgstr "Inicaitiva / Oportunbidad"
+#: view:crm.lead:0
+msgid "Departament..."
+msgstr "Departamento..."
 
 #. module: l10n_pe_crm_lead
 #: field:crm.lead,l10n_pe_district_id:0
 msgid "District"
 msgstr "Distrito"
+
+#. module: l10n_pe_crm_lead
+#: model:ir.model,name:l10n_pe_crm_lead.model_crm_lead2opportunity_partner
+msgid "Lead To Opportunity Partner"
+msgstr "Iniciativa a Oportunidad"
+
+#. module: l10n_pe_crm_lead
+#: model:ir.model,name:l10n_pe_crm_lead.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Inicaitiva / Oportunbidad"
 
