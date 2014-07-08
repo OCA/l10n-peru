@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="1">
+    <data noupdate="0">
         <record id="base.pe" model="res.country">
-            <field name="address_format" eval="'PE%(street)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s'"/>
+            <field name="address_format" eval="'PE%(street)s\n%(state_name)s %(country_name)s %(zip)s'"/>
         </record>
     </data>
 </openerp>

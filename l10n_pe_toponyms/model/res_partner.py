@@ -52,19 +52,19 @@ class res_partner(osv.osv):
         province = _('Province...')
         district = _('District...')
         cp = _('ZIP')
-        state = _('State')
+        state = _('Departament...')
         country = _('Country...')
         city2 = _('City...')
         res = super(res_partner, self).fields_view_get_address(cr, uid, arch, context=context)
         user_obj = self.pool.get('res.users')
         fmt = user_obj.browse(cr, SUPERUSER_ID, uid, context).company_id.country_id
         fmt = fmt and fmt.address_format
-        city = '<field name="city" placeholder="City" style="width: 40%%"/>'
+        city = '<field name="city" placeholder="City..." style="width: 40%%" modifiers="{&quot;invisible&quot;: true}"/>'
         for name, field in self._columns.items():
             if name == 'city_id':
-                city = '<field name="city" modifiers="{&quot;invisible&quot;: true}" placeholder="%s" style="width: 50%%" invisible="1"/><field name="city_id" on_change="onchange_city(city_id)" placeholder="%s" style="width: 40%%"/>' % (city2, city2)
+                city = '<field name="city" modifiers="{&quot;invisible&quot;: true}" placeholder="%s" style="width: 50%%" invisible="1"/><field name="city_id" on_change="onchange_city(city_id)" placeholder="%s" style="width: 40%%" modifiers="{&quot;invisible&quot;: true}"/>' % (city2, city2)
         layouts = {
-            'PE%(street)s\n%(street2)s %(city)s\n%(state_name)s %(country_name)s %(zip)s': """
+            'PE%(street)s\n%(state_name)s %(country_name)s %(zip)s': """
                     <group>
                         <group>
                             <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
@@ -79,11 +79,11 @@ class res_partner(osv.osv):
                             <label for="street" string="Address"/>
                             <div>
                                 <field name="street" placeholder="%s"/>
-                                <field name="street2" placeholder="%s"/>
+                                <field name="street2" placeholder="%s" modifiers="{&quot;invisible&quot;: true}"/>
                                 <div class="address_format">
                                     %s
-                                    <field name="state_id" class="oe_no_button" placeholder="%s" style="width: 37%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>
-                                    <field name="zip" placeholder="%s" style="width: 20%%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="%s" style="width: 48%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>
+                                    <field name="zip" placeholder="%s" style="width: 48%%"/>
                                 </div>
                                 <field name="l10n_pe_province_id" placeholder="%s" class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>
                                 <field name="l10n_pe_district_id" placeholder="%s" class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>

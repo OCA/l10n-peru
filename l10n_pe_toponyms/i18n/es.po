@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-16 22:52+0000\n"
-"PO-Revision-Date: 2014-06-16 22:52+0000\n"
+"POT-Creation-Date: 2014-07-07 22:48+0000\n"
+"PO-Revision-Date: 2014-07-07 22:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgid "District address for partner"
 msgstr "Distritos de la dirección del partner"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:62
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:56
 #, python-format
 msgid "Country..."
 msgstr "País..."
@@ -41,7 +41,7 @@ msgid "Provinces"
 msgstr "Provincias"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:63
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:57
 #, python-format
 msgid "City..."
 msgstr "Ciudad..."
@@ -52,20 +52,18 @@ msgid "Address PE"
 msgstr "Dirección PE"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:56
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:50
 #, python-format
 msgid "Street..."
 msgstr "Calle..."
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:61
 #: field:res.country.province,state_id:0
-#, python-format
 msgid "State"
 msgstr "Estado"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:153
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:147
 #: sql_constraint:res.country.province:0
 #, python-format
 msgid "The code of the province must be unique !"
@@ -80,11 +78,18 @@ msgid "Province"
 msgstr "Provincia"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:58
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:52
 #: view:res.company:0
 #, python-format
 msgid "Province..."
 msgstr "Provincia..."
+
+#. module: l10n_pe_toponyms
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:55
+#: view:res.company:0
+#, python-format
+msgid "Departament..."
+msgstr "Departamento..."
 
 #. module: l10n_pe_toponyms
 #: model:ir.model,name:l10n_pe_toponyms.model_res_country_province
@@ -92,7 +97,7 @@ msgid "res.country.province"
 msgstr "res.country.province"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:59
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:53
 #: view:res.company:0
 #, python-format
 msgid "District..."
@@ -105,7 +110,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:60
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:54
 #, python-format
 msgid "ZIP"
 msgstr "C.P."
@@ -133,7 +138,7 @@ msgid "Districts"
 msgstr "Distritos"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:166
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:160
 #: sql_constraint:res.country.district:0
 #, python-format
 msgid "The code of the district must be unique !"
@@ -151,7 +156,7 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: l10n_pe_toponyms
-#: code:addons/l10n_pe_toponyms/model/res_partner.py:57
+#: code:addons/l10n_pe_toponyms/model/res_partner.py:51
 #, python-format
 msgid "Colony..."
 msgstr "Colonia..."
