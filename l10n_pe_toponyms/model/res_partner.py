@@ -64,7 +64,7 @@ class res_partner(osv.osv):
             if name == 'city_id':
                 city = '<field name="city" modifiers="{&quot;invisible&quot;: true}" placeholder="%s" style="width: 50%%" invisible="1"/><field name="city_id" on_change="onchange_city(city_id)" placeholder="%s" style="width: 40%%" modifiers="{&quot;invisible&quot;: true}"/>' % (city2, city2)
         layouts = {
-            'PE%(street)s\n%(state_name)s %(country_name)s %(zip)s': """
+            '%(street)s\n%(state_name)s %(country_name)s %(zip)s': """
                     <group>
                         <group>
                             <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
