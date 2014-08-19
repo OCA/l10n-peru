@@ -172,7 +172,7 @@
                 "analytic_user_function",
                 "decimal_precision",
                 "knowledge",
-                "l10n_in_hr_payroll",
+                #"l10n_in_hr_payroll",#Error https://gist.github.com/moylop260/21f158bd24a59ade583b
                 "mrp_byproduct",
                 "product_manufacturer",
                 #"stock_location", #Error to fix
