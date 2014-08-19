@@ -28,23 +28,48 @@
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
+import unicodedata
 
 class sale_order(osv.Model):
     
     _inherit = 'sale.order'
-    
+
+    def unaccented(self, cadena):
+        s = ''.join((c for c in unicodedata.normalize('NFD',unicode(cadena)) if unicodedata.category(c) != 'Mn'))
+        return s.decode()
+
     def check_ruc_dni(self, cr, uid, ids, context=None):
+        country = False
+        vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
-            if partner.vat:
+            if sale_order.user_id.company_id.partner_id.country_id.name:
+                country = self.unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+            if sale_order.user_id.company_id.partner_id.vat:
+                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \
+                    (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pd':
+                    vat_pe = sale_order.user_id.company_id.partner_id.vat
+            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                return True
+            elif partner.vat:
                 return True
         return False
 
     def check_ruc(self, cr, uid, ids, context=None):
+        country = False
+        vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
             partner_company = partner.is_company
-            if (partner_company and partner.vat) or (not partner_company):
+            if sale_order.user_id.company_id.partner_id.country_id.name:
+                country = self.unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+            if sale_order.user_id.company_id.partner_id.vat:
+                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \
+                    (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pd':
+                        vat_pe = sale_order.user_id.company_id.partner_id.vat
+            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                return True
+            elif (partner_company and partner.vat) or (not partner_company):
                 return True
         return False
     
