@@ -55,6 +55,12 @@
             <field name="condition">amount_total &gt;= 700</field>
         </record>
 
+        <record id="trans_wait_cancel" model="workflow.transition">
+            <field name="act_from" ref="act_validation_wait"/>
+            <field name="act_to" ref="account.act_cancel"/>
+            <field name="signal">invoice_cancel</field>
+        </record>
+
         <record id="account.act_open" model="workflow.activity">
             <field name="action">action_date_assign()
 action_move_create()
