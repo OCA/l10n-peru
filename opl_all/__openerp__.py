@@ -27,7 +27,7 @@
 {   "name" : "OpenERP Peruvian Localization",
     "version" : "",
     "depends" : [
-                #"opl", #WIP
+                "opl",
                 #Start list of all oficial modules
                 "account",
                 "auth_openid",
@@ -235,8 +235,9 @@ Install all apps needed to comply with Peruvian laws plus all oficial modules
 This module will install for you:
   
   - OPL module
-  
-  - All oficial modules (account, stock, mrp...)
+
+  - All oficial modules (account, stock, mrp, etc.)
+
                     """,
     "website" : "http://www.vauxoo.com",
     "category" : "Localization/Application",
