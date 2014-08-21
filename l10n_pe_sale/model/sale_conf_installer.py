@@ -31,7 +31,7 @@ class sale_configuration(osv.osv_memory):
     _inherit = 'sale.config.settings'
     
     _columns = {
-    'limit_amount': fields.integer('limit to require a validation of ruc or dni',required=True,
+    'limit_amount': fields.integer('limit to require a validation of ruc or dni',
         help="Amount after which validation of sale is required."),
     }
 
