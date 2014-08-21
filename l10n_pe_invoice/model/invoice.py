@@ -44,7 +44,7 @@ class account_invoice(osv.Model):
         for inv in self.browse(cr, uid, ids, context=context):
             if inv.type in ('out_invoice', 'out_refund'):
                 partner = inv.partner_id.commercial_partner_id
-                if inv.user_id.company_id.partner_id.country_id.name:
+                if inv.user_id.company_id and inv.user_id.company_id.partner_id and inv.user_id.company_id.partner_id.country_id and inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id.company_id.partner_id.vat:
                     if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \
@@ -65,7 +65,7 @@ class account_invoice(osv.Model):
             if inv.type in ('out_invoice', 'out_refund'):
                 partner = inv.partner_id.commercial_partner_id
                 partner_company = partner.is_company
-                if inv.user_id.company_id.partner_id.country_id.name:
+                if inv.user_id.company_id and inv.user_id.company_id.partner_id and inv.user_id.company_id.partner_id.country_id and inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id.company_id.partner_id.vat:
                     if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \

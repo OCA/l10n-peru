@@ -45,7 +45,7 @@ class sale_order(osv.Model):
             partner = sale_order.partner_id.commercial_partner_id
             if sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
-            if sale_order.user_id.company_id.partner_id.vat:
+            if sale_order.user_id.company_id and sale_order.user_id.company_id.partner_id and sale_order.user_id.company_id.partner_id.vat:
                 if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \
                     (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pd':
                     vat_pe = sale_order.user_id.company_id.partner_id.vat
@@ -63,7 +63,7 @@ class sale_order(osv.Model):
             partner_company = partner.is_company
             if sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
-            if sale_order.user_id.company_id.partner_id.vat:
+            if sale_order.user_id.company_id and sale_order.user_id.company_id.partner_id and sale_order.user_id.company_id.partner_id.vat:
                 if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pr' or \
                     (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pd':
                         vat_pe = sale_order.user_id.company_id.partner_id.vat
