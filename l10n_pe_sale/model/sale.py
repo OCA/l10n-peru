@@ -24,27 +24,57 @@
 #
 ##############################################################################
 
-
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
-
 
 class sale_order(osv.Model):
     
     _inherit = 'sale.order'
-    
+
     def check_ruc_dni(self, cr, uid, ids, context=None):
+        country = False
+        vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
-            partner = sale_order.partner_id.commercial_partner_id
-            if partner.vat:
+            partner = inv.partner_id and \
+                        inv.partner_id.commercial_partner_id or False
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.country_id and \
+                sale_order.user_id.company_id.partner_id.country_id.name:
+                country = self.pool.get('account.invoice').unaccented(
+                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.vat:
+                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                    vat_pe = sale_order.user_id.company_id.partner_id.vat
+            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                return True
+            elif partner.vat:
                 return True
         return False
 
     def check_ruc(self, cr, uid, ids, context=None):
+        country = False
+        vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
-            partner = sale_order.partner_id.commercial_partner_id
+            partner = inv.partner_id and \
+                        inv.partner_id.commercial_partner_id or False
             partner_company = partner.is_company
-            if (partner_company and partner.vat) or (not partner_company):
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.country_id and \
+                sale_order.user_id.company_id.partner_id.country_id.name:
+                country = self.pool.get('account.invoice').unaccented(
+                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.vat:
+                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                        vat_pe = sale_order.user_id.company_id.partner_id.vat
+            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                return True
+            elif (partner_company and partner.vat) or (not partner_company):
                 return True
         return False
     

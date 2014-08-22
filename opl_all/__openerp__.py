@@ -24,11 +24,26 @@
 #                                                                             #
 ###############################################################################
 
-{   "name" : "OpenERP Peruvian Localization",
-    "version" : "",
-    "depends" : [
-                #"opl", #WIP
-                #Start list of all oficial modules
+{"name": "OpenERP Peruvian Localization",
+    "version": "",
+    "author": "Vauxoo",
+    "category": "Localization/Application",
+    "description": """
+Install all apps needed to comply with Peruvian laws plus all oficial modules
+=============================================================================
+
+This module will install for you:
+
+  - OPL module
+
+  - All oficial modules (account, stock, mrp, etc.)
+
+                    """,
+    "website": "http://www.vauxoo.com/",
+    "license": "AGPL-3",
+    "depends": [
+                "opl",
+                # Start list of all oficial modules
                 "account",
                 "auth_openid",
                 "event",
@@ -56,8 +71,8 @@
                 "l10n_ch",
                 "l10n_ro",
                 "plugin_thunderbird",
-                #"purchase_analytic_plans",#Error to fix
-                #"account_analytic_plans",#Error to fix
+                # "purchase_analytic_plans",#Error to fix
+                # "account_analytic_plans",#Error to fix
                 "base_gengo",
                 "fleet",
                 "l10n_cl",
@@ -105,7 +120,7 @@
                 "l10n_es",
                 "l10n_uy",
                 "portal_hr_employees",
-                #"sale_analytic_plans",#Error to fix
+                # "sale_analytic_plans",# Error to fix
                 "account_check_writing",
                 "board",
                 "hr_expense",
@@ -149,7 +164,8 @@
                 "process",
                 "sale_stock",
                 "account_voucher",
-                #"crm_partner_assign",#Make a error of geolocalization: https://bugs.launchpad.net/openobject-addons/+bug/1295545
+                # "crm_partner_assign",#Make a error of geolocalization:
+                # https://bugs.launchpad.net/openobject-addons/+bug/1295545
                 "hr_timesheet_invoice",
                 "l10n_hn",
                 "marketing_campaign_crm_demo",
@@ -172,10 +188,11 @@
                 "analytic_user_function",
                 "decimal_precision",
                 "knowledge",
-                #"l10n_in_hr_payroll",#Error https://gist.github.com/moylop260/21f158bd24a59ade583b
+                # "l10n_in_hr_payroll",# Error
+                # https://gist.github.com/moylop260/21f158bd24a59ade583b
                 "mrp_byproduct",
                 "product_manufacturer",
-                #"stock_location", #Error to fix
+                # "stock_location", #Error to fix
                 "anonymization",
                 "delivery",
                 "l10n_ar",
@@ -191,7 +208,7 @@
                 "product_visible_discount",
                 "subscription",
                 "audittrail",
-                #"document_ftp", #No test
+                # "document_ftp", # No test
                 "l10n_be",
                 "l10n_ma",
                 "mrp_repair",
@@ -204,7 +221,7 @@
                 "multi_company",
                 "project_gtd",
                 "warning",
-                #"auth_ldap", #No test
+                # "auth_ldap", # No test
                 "document_webdav",
                 "l10n_be_hr_payroll",
                 "l10n_mx",
@@ -225,27 +242,10 @@
                 "pad",
                 "project_long_term",
                 "web_shortcuts"
-                #End list of all oficial modules
-                ],
-    "author" : "Vauxoo",
-    "description" : """
-Install all apps needed to comply with Peruvian laws plus all oficial modules 
-=============================================================================
-
-This module will install for you:
-  
-  - OPL module
-  
-  - All oficial modules (account, stock, mrp...)
-                    """,
-    "website" : "http://www.vauxoo.com",
-    "category" : "Localization/Application",
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" : [],
-    "test" : [],
-    "images" : [],
-    "auto_install": False,
-    "application": True,
+                # End list of all oficial modules
+        ],
+    "demo": [],
+    "data": [],
+    'test': [],
     "installable": True,
-}
+    "active": False, }

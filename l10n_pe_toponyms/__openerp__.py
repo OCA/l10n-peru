@@ -44,7 +44,6 @@
     'test': [
     ],
     'demo': [
-        "demo/l10n_pe_address_demo.xml"
     ],
     'installable': True,
     'auto_install': False
