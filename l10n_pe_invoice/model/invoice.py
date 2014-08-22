@@ -37,7 +37,8 @@ class account_invoice(osv.Model):
         vat_pe = False
         for inv in self.browse(cr, uid, ids, context=context):
             if inv.type in ('out_invoice', 'out_refund'):
-                partner = inv.partner_id.commercial_partner_id
+                partner = inv.partner_id and \
+                            inv.partner_id.commercial_partner_id or False
                 if inv.user_id and inv.user_id.company_id and \
                     inv.user_id.company_id.partner_id and \
                     inv.user_id.company_id.partner_id.country_id and \
@@ -62,7 +63,8 @@ class account_invoice(osv.Model):
         vat_pe = False
         for inv in self.browse(cr, uid, ids, context=context):
             if inv.type in ('out_invoice', 'out_refund'):
-                partner = inv.partner_id.commercial_partner_id
+                partner = inv.partner_id and \
+                            inv.partner_id.commercial_partner_id or False
                 partner_company = partner.is_company
                 if inv.user_id and inv.user_id.company_id and \
                     inv.user_id.company_id.partner_id and \
