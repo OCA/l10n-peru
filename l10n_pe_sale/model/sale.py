@@ -40,7 +40,8 @@ class sale_order(osv.Model):
                 sale_order.user_id.company_id.partner_id and \
                 sale_order.user_id.company_id.partner_id.country_id and \
                 sale_order.user_id.company_id.partner_id.country_id.name:
-                country = self.pool.get('account.invoice').unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                country = self.pool.get('account.invoice').unaccented(
+                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \
                 sale_order.user_id.company_id.partner_id.vat:
@@ -62,7 +63,8 @@ class sale_order(osv.Model):
                 sale_order.user_id.company_id.partner_id and \
                 sale_order.user_id.company_id.partner_id.country_id and \
                 sale_order.user_id.company_id.partner_id.country_id.name:
-                country = self.pool.get('account.invoice').unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                country = self.pool.get('account.invoice').unaccented(
+                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \
                 sale_order.user_id.company_id.partner_id.vat:

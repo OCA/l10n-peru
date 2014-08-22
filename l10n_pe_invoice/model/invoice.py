@@ -28,15 +28,9 @@
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
-import unicodedata
-
 class account_invoice(osv.Model):
     
     _inherit = 'account.invoice'
-    
-    def unaccented(self, cadena):
-        s = ''.join((c for c in unicodedata.normalize('NFD',unicode(cadena)) if unicodedata.category(c) != 'Mn'))
-        return s.decode()
 
     def check_ruc_dni(self, cr, uid, ids, context=None):
         country = False
@@ -48,7 +42,8 @@ class account_invoice(osv.Model):
                     inv.user_id.company_id.partner_id and \
                     inv.user_id.company_id.partner_id.country_id and \
                     inv.user_id.company_id.partner_id.country_id.name:
-                    country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                    country = self.unaccented(
+                        inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id and inv.user_id.company_id and \
                     inv.user_id.company_id.partner_id and \
                     inv.user_id.company_id.partner_id.vat:
@@ -73,7 +68,8 @@ class account_invoice(osv.Model):
                     inv.user_id.company_id.partner_id and \
                     inv.user_id.company_id.partner_id.country_id and \
                     inv.user_id.company_id.partner_id.country_id.name:
-                    country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                    country = self.unaccented(
+                        inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id and inv.user_id.company_id and \
                     inv.user_id.company_id.partner_id and \
                     inv.user_id.company_id.partner_id.vat:
