@@ -36,7 +36,10 @@ class sale_order(osv.Model):
         vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
-            if sale_order.user_id.company_id.partner_id.country_id.name:
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.country_id and \
+                sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.pool.get('account.invoice').unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \
@@ -55,7 +58,10 @@ class sale_order(osv.Model):
         for sale_order in self.browse(cr, uid, ids, context=context):
             partner = sale_order.partner_id.commercial_partner_id
             partner_company = partner.is_company
-            if sale_order.user_id.company_id.partner_id.country_id.name:
+            if sale_order.user_id and sale_order.user_id.company_id and \
+                sale_order.user_id.company_id.partner_id and \
+                sale_order.user_id.company_id.partner_id.country_id and \
+                sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.pool.get('account.invoice').unaccented(sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \

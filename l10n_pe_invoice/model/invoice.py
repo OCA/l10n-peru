@@ -49,7 +49,9 @@ class account_invoice(osv.Model):
                     inv.user_id.company_id.partner_id.country_id and \
                     inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
-                if inv.user_id.company_id.partner_id.vat:
+                if inv.user_id and inv.user_id.company_id and \
+                    inv.user_id.company_id.partner_id and \
+                    inv.user_id.company_id.partner_id.vat:
                     if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
                         vat_pe = inv.user_id.company_id.partner_id.vat
                 if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
@@ -72,7 +74,9 @@ class account_invoice(osv.Model):
                     inv.user_id.company_id.partner_id.country_id and \
                     inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
-                if inv.user_id.company_id.partner_id.vat:
+                if inv.user_id and inv.user_id.company_id and \
+                    inv.user_id.company_id.partner_id and \
+                    inv.user_id.company_id.partner_id.vat:
                     if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
                         vat_pe = inv.user_id.company_id.partner_id.vat
                 if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
