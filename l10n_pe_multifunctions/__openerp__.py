@@ -26,8 +26,8 @@
 
 {"name": "Multi Functions Module",
     "version": "",
-    "depends": ["base", "account"],
     "author": "Vauxoo",
+    "category": "Localization/Peru",
     "description": """
 Install all apps needed to comply with Peruvian laws
 ====================================================
@@ -35,12 +35,10 @@ This module adds validations that will be used in several modules
 of the Peruvian location.
                     """,
     "website": "http://www.vauxoo.com",
-    "category": "Localization/Peru",
-    "init_xml": [],
-    "demo_xml": [],
-    "update_xml": [],
-    "test": [],
-    "images": [],
-    "auto_install": False,
-    "application": True,
-    "installable": True, }
+    "license": "AGPL-3",
+    "depends": ["base", "account"],
+    "demo": [],
+    "data": [],
+    'test': [],
+    "installable": True,
+    "active": False, }
