@@ -35,8 +35,8 @@ class sale_order(osv.Model):
         country = False
         vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
-            partner = inv.partner_id and \
-                        inv.partner_id.commercial_partner_id or False
+            partner = sale_order.partner_id and \
+                        sale_order.partner_id.commercial_partner_id or False
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \
                 sale_order.user_id.company_id.partner_id.country_id and \
@@ -58,8 +58,8 @@ class sale_order(osv.Model):
         country = False
         vat_pe = False
         for sale_order in self.browse(cr, uid, ids, context=context):
-            partner = inv.partner_id and \
-                        inv.partner_id.commercial_partner_id or False
+            partner = sale_order.partner_id and \
+                        sale_order.partner_id.commercial_partner_id or False
             partner_company = partner.is_company
             if sale_order.user_id and sale_order.user_id.company_id and \
                 sale_order.user_id.company_id.partner_id and \
