@@ -128,7 +128,7 @@ This module will install for you:
                 "l10n_ve",
                 "portal_project",
                 "sale_crm",
-                "account_followup",
+                #"account_followup",    [Migration V8]
                 "claim_from_delivery",
                 "hr_holidays",
                 "l10n_fr",
