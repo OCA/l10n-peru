@@ -42,7 +42,7 @@ This module will install for you:
     "website": "http://www.vauxoo.com/",
     "license": "AGPL-3",
     "depends": [
-                "opl",
+                #"opl",#TODO: uncomment this line
                 # Start list of all oficial modules
                 "account",
                 "auth_openid",
