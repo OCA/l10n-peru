@@ -2,7 +2,7 @@
 _build/
 
 # dotfiles
-#.*
+.*
 !.gitignore
 # compiled python files
 *.py[co]
