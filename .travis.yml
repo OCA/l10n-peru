@@ -5,7 +5,7 @@ python:
 
 env:
   - VERSION="7.0" ODOO_REPO="odoo/odoo"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo"
+  - VERSION="7.0" ODOO_REPO="OCA/OCB"
 
 virtualenv:
   system_site_packages: true
