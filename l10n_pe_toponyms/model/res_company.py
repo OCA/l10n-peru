@@ -27,6 +27,7 @@
 from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID
 
+
 class res_company(osv.Model):
     _inherit = 'res.company'
 
@@ -39,9 +40,11 @@ class res_company(osv.Model):
         for company in self.browse(cr, uid, ids, context=context):
             result[company.id] = {}.fromkeys(field_names, False)
             if company.partner_id:
-                address_data = part_obj.address_get(cr, SUPERUSER_ID, [company.partner_id.id], adr_pref=['default'])
+                address_data = part_obj.address_get(
+                    cr, SUPERUSER_ID, [company.partner_id.id], adr_pref=['default'])
                 if address_data['default']:
-                    address = part_obj.read(cr, SUPERUSER_ID, address_data['default'], field_names, context=context)
+                    address = part_obj.read(
+                        cr, SUPERUSER_ID, address_data['default'], field_names, context=context)
                     for field in field_names:
                         result[company.id][field] = address[field] or False
         return result
@@ -53,19 +56,22 @@ class res_company(osv.Model):
         company = self.browse(cr, uid, company_id, context=context)
         if company.partner_id:
             part_obj = self.pool.get('res.partner')
-            address_data = part_obj.address_get(cr, uid, [company.partner_id.id], adr_pref=['default'])
+            address_data = part_obj.address_get(
+                cr, uid, [company.partner_id.id], adr_pref=['default'])
             address = address_data['default']
             if address:
-                part_obj.write(cr, uid, [address], {name: value or False}, context=context)
+                part_obj.write(
+                    cr, uid, [address], {name: value or False}, context=context)
             else:
-                part_obj.create(cr, uid, {name: value or False, 'parent_id': company.partner_id.id}, context=context)
+                part_obj.create(
+                    cr, uid, {name: value or False, 'parent_id': company.partner_id.id}, context=context)
         return True
-    
+
     _columns = {
         'l10n_pe_province_id': fields.function(_get_address_data, fnct_inv=_set_address_data,
-            type='many2one', string="Province", multi='address', relation="res.country.province",
-            help='Province address for partner', domain="[('state_id', '=', state_id)]"),
+                                               type='many2one', string="Province", multi='address', relation="res.country.province",
+                                               help='Province address for partner', domain="[('state_id', '=', state_id)]"),
         'l10n_pe_district_id': fields.function(_get_address_data, fnct_inv=_set_address_data,
-            type='many2one', string="District", multi='address', relation="res.country.district",
-            help='District address for partner', domain="[('province_id', '=', l10n_pe_province_id)]"),
+                                               type='many2one', string="District", multi='address', relation="res.country.district",
+                                               help='District address for partner', domain="[('province_id', '=', l10n_pe_province_id)]"),
     }

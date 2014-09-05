@@ -29,12 +29,14 @@ from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
 import re
+
+
 class account_invoice(osv.Model):
-    
+
     _inherit = 'account.invoice'
-    
+
     def _check_reference_field(self, cr, uid, ids, context=None):
-        invoices = self.browse(cr,uid, ids)
+        invoices = self.browse(cr, uid, ids)
         for invoice in invoices:
             if (invoice.type == 'in_invoice'):
                 if(invoice.supplier_invoice_number):
@@ -48,5 +50,5 @@ class account_invoice(osv.Model):
                         return False
         return True
 
-    _constraints = [(_check_reference_field,_("Invalid value \nThe correct format is:\n [alphanumeric value]-[numeric value]")
-        ,['supplier_invoice_number']),]
+    _constraints = [(_check_reference_field, _(
+        "Invalid value \nThe correct format is:\n [alphanumeric value]-[numeric value]"), ['supplier_invoice_number']), ]

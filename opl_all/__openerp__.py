@@ -243,7 +243,7 @@ This module will install for you:
                 "project_long_term",
                 "web_shortcuts"
                 # End list of all oficial modules
-        ],
+    ],
     "demo": [],
     "data": [],
     'test': [],
