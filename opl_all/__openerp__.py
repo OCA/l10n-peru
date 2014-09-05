@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-                                                       #
-###############################################################################
+##
 #    Module Writen to OpenERP, Open Source Management Solution                #
 #                                                                             #
 #    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com                        #
 #    All Rights Reserved.                                                     #
 #    info@vauxoo.com                                                          #
-###############################################################################
+##
 #    Coded by: Sabrina Romero (sabrina@vauxoo.com)                            #
-###############################################################################
+##
 #                                                                             #
 #    This program is free software: you can redistribute it and/or modify     #
 #    it under the terms of the GNU Affero General Public License as           #
@@ -22,7 +22,7 @@
 #    You should have received a copy of the GNU Affero General Public License #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
 #                                                                             #
-###############################################################################
+##
 
 {"name": "OpenERP Peruvian Localization",
     "version": "",
@@ -43,7 +43,12 @@ This module will install for you:
     "license": "AGPL-3",
     "depends": [
                 "opl",
-                # Start list of all oficial modules
+                # Start
+                # list
+                # of
+                # all
+                # oficial
+                # modules
                 "account",
                 "auth_openid",
                 "event",
@@ -242,8 +247,13 @@ This module will install for you:
                 "pad",
                 #"project_long_term",   [Migration V8]
                 #"web_shortcuts"    [Migration V8]
-                # End list of all oficial modules
-        ],
+                # End
+                # list
+                # of
+                # all
+                # oficial
+                # modules
+    ],
     "demo": [],
     "data": [],
     'test': [],
