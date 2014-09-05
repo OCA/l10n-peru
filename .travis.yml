@@ -14,6 +14,7 @@ install:
   - git clone https://github.com/vauxoo-dev/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly ${VERSION}
+  - ${TRAVIS_BUILD_DIR}/travis/travis_install_pe_nightly ${VERSION}
 
 script:
   - travis_run_flake8
