@@ -85,14 +85,18 @@ class res_company(osv.Model):
                                                string="Province",
                                                multi='address',
                                                relation="res.country.province",
-                                               help='Province address for partner',
-                                               domain="[('state_id', '=', state_id)]"),
+                                               help='Province address for \
+                                                    partner',
+                                               domain="[('state_id', '=', \
+                                                    state_id)]"),
         'l10n_pe_district_id': fields.function(_get_address_data,
                                                fnct_inv=_set_address_data,
                                                type='many2one',
                                                string="District",
                                                multi='address',
                                                relation="res.country.district",
-                                               help='District address for partner',
-                                               domain="[('province_id', '=', l10n_pe_province_id)]"),
+                                               help='District address for \
+                                                    partner',
+                                               domain="[('province_id', '=', \
+                                                    l10n_pe_province_id)]"),
     }

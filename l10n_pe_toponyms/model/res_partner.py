@@ -33,12 +33,14 @@ class res_partner(osv.osv):
     _inherit = 'res.partner'
 
     _columns = {
-        'l10n_pe_province_id': fields.many2one("res.country.province",
-                                               'Province',
-                                               domain="[('state_id','=',state_id)]"),
-        'l10n_pe_district_id': fields.many2one("res.country.district",
-                                               'District',
-                                               domain="[('province_id','=',l10n_pe_province_id)]"),
+        'l10n_pe_province_id': fields.many2one(
+            "res.country.province",
+            'Province',
+            domain="[('state_id','=',state_id)]"),
+        'l10n_pe_district_id': fields.many2one(
+            "res.country.district",
+            'District',
+            domain="[('province_id','=',l10n_pe_province_id)]"),
     }
 
     def _get_default_country_id(self, cr, uid, context=None):
@@ -90,44 +92,54 @@ class res_partner(osv.osv):
                     city2, city2)
         layouts = {
             '%(street)s\n%(state_name)s %(country_name)s %(zip)s': """
-                    <group>
-                        <group>
-                            <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
-                            <div attrs="{'invisible': [('parent_id','=', False)]}" name="div_type">
-                                <field class="oe_inline"
-                                    name="type"/>
-                                <label for="use_parent_address" class="oe_edit_only"/>
-                                <field name="use_parent_address" class="oe_edit_only oe_inline"
-                                    on_change="onchange_address(use_parent_address, parent_id)"/>
-                            </div>
+<group>
+    <group>
+        <label for="type" attrs="{'invisible': [('parent_id','=', False)]}"/>
+        <div attrs="{'invisible': [('parent_id','=', False)]}" name="div_type">
+            <field class="oe_inline"
+                name="type"/>
+            <label for="use_parent_address" class="oe_edit_only"/>
+            <field name="use_parent_address" class="oe_edit_only oe_inline"
+                on_change="onchange_address(use_parent_address, parent_id)"/>
+        </div>
 
-                            <label for="street" string="Address"/>
-                            <div>
-                                <field name="street" placeholder="%s"/>
-                                <field name="street2" placeholder="%s" modifiers="{&quot;invisible&quot;: true}"/>
-                                <div class="address_format">
-                                    %s
-                                    <field name="state_id" class="oe_no_button" placeholder="%s" style="width: 48%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>
-                                    <field name="zip" placeholder="%s" style="width: 48%%"/>
-                                </div>
-                                <field name="l10n_pe_province_id" placeholder="%s" class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>
-                                <field name="l10n_pe_district_id" placeholder="%s" class="oe_no_button" style="width: 48%%" options='{"no_open": True}'/>
-                                <field name="country_id" placeholder="%s" class="oe_no_button" options='{"no_open": True}'/>
-                            </div>
-                            <field name="website" widget="url" placeholder="e.g. www.openerp.com"/>
-                        </group>
-                        <group>
-                            <field name="function" placeholder="e.g. Sales Director"
-                                attrs="{'invisible': [('is_company','=', True)]}"/>
-                            <field name="phone" placeholder="e.g. +32.81.81.37.00"/>
-                            <field name="mobile"/>
-                            <field name="fax"/>
-                            <field name="email" widget="email"/>
-                            <field name="title" domain="[('domain', '=', 'contact')]"
-                                options='{"no_open": True}' attrs="{'invisible': [('is_company','=', True)]}" />
-                        </group>
-                    </group>
-            """ % (street, street2, city, state, cp, province, district, country)
+        <label for="street" string="Address"/>
+        <div>
+            <field name="street" placeholder="%s"/>
+            <field name="street2" placeholder="%s" \
+            modifiers="{&quot;invisible&quot;: true}"/>
+            <div class="address_format">
+                %s
+                <field name="state_id" class="oe_no_button" placeholder="%s" \
+                style="width: 48%%" options='{"no_open": True}' \
+                on_change="onchange_state(state_id)"/>
+                <field name="zip" placeholder="%s" style="width: 48%%"/>
+            </div>
+            <field name="l10n_pe_province_id" placeholder="%s" \
+            class="oe_no_button" style="width: 48%%" \
+            options='{"no_open": True}'/>
+            <field name="l10n_pe_district_id" placeholder="%s" \
+            class="oe_no_button" style="width: 48%%" \
+            options='{"no_open": True}'/>
+            <field name="country_id" placeholder="%s" \
+            class="oe_no_button" options='{"no_open": True}'/>
+        </div>
+        <field name="website" widget="url" placeholder="e.g. www.openerp.com"/>
+    </group>
+    <group>
+        <field name="function" placeholder="e.g. Sales Director"
+            attrs="{'invisible': [('is_company','=', True)]}"/>
+        <field name="phone" placeholder="e.g. +32.81.81.37.00"/>
+        <field name="mobile"/>
+        <field name="fax"/>
+        <field name="email" widget="email"/>
+        <field name="title" domain="[('domain', '=', 'contact')]"
+            options='{"no_open": True}' \
+            attrs="{'invisible': [('is_company','=', True)]}" />
+    </group>
+</group>
+            """ % (street, street2, city, state, cp, province, district,
+                   country)
         }
         for k, v in layouts.items():
             if fmt and (k in fmt):
@@ -151,7 +163,8 @@ class res_partner(osv.osv):
             view_id = self.pool.get('ir.model.data').get_object_reference(
                 cr, user, 'base', 'view_partner_simple_form')[1]
         res = super(res_partner, self).fields_view_get(
-            cr, user, view_id, view_type, context, toolbar=toolbar, submenu=submenu)
+            cr, user, view_id, view_type, context, toolbar=toolbar,
+            submenu=submenu)
         if view_type == 'form':
             fields_get = self.fields_get(cr, user, [
                 'l10n_pe_province_id', 'l10n_pe_district_id'], context)
@@ -170,8 +183,12 @@ class res_country_province(osv.osv):
     _columns = {
         'name': fields.char('Name', size=64, required=True, select=True),
         'code': fields.char('Code', size=6, required=True, select=True),
-        'district_ids': fields.one2many('res.country.district', 'province_id', 'Districts'),
-        'state_id': fields.many2one('res.country.state', 'State', select=True, required=True),
+        'district_ids': fields.one2many('res.country.district',
+                                        'province_id',
+                                        'Districts'),
+        'state_id': fields.many2one('res.country.state', 'State',
+                                    select=True,
+                                    required=True),
     }
 
     _sql_constraints = [
@@ -186,7 +203,10 @@ class res_country_district(osv.osv):
     _columns = {
         'name': fields.char('Name', size=64, required=True, select=True),
         'code': fields.char('Code', size=8, required=True, select=True),
-        'province_id': fields.many2one('res.country.province', 'Province', required=True, select=True),
+        'province_id': fields.many2one('res.country.province',
+                                       'Province',
+                                       required=True,
+                                       select=True),
     }
 
     _sql_constraints = [
