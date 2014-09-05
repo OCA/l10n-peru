@@ -13,16 +13,12 @@ virtualenv:
 install:
   - git clone https://github.com/vauxoo-dev/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  #- travis_install_nightly ${VERSION}
-  - pip install -q pylint
+  - travis_install_nightly ${VERSION}
 
 script:
-  #- travis_run_flake8
-  - echo "{HOME}"
-  - pwd
-  - ls
+  - travis_run_flake8
   - travis_run_pylint
-  #- travis_run_tests ${VERSION}
+  - travis_run_tests ${VERSION}
 
 after_success:
   coveralls
