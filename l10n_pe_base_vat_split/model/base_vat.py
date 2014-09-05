@@ -40,8 +40,8 @@ class res_partner(osv.Model):
 
     _columns = {
         'vat_split': fields.function(_get_base_vat_split, method=True,
-                    type='char', size=64, string='VAT Split', store=True,
-                    help='Remove the prefix of the country of the VAT'),
+                                     type='char', size=64, string='VAT Split', store=True,
+                                     help='Remove the prefix of the country of the VAT'),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

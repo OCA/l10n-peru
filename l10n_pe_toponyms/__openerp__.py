@@ -24,15 +24,15 @@
 #
 #############################################################################
 {
-    'name' : 'l10n_pe Geopolitical Distribution',
-    'version' : '1.0',
+    'name': 'l10n_pe Geopolitical Distribution',
+    'version': '1.0',
     'category': 'Localization\Peru',
-    'depends' : ['base'],
-    'author' : 'Vauxoo',
+    'depends': ['base'],
+    'author': 'Vauxoo',
     'description': """
     This module add the fields that require the address of partner in the l10n_pe
     """,
-    "website" : "http://www.vauxoo.com/",
+    "website": "http://www.vauxoo.com/",
     'data': [
         'security/l10n_pe_security.xml',
         'data/res_country_data.xml',

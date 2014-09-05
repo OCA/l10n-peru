@@ -24,15 +24,15 @@
 #
 #############################################################################
 {
-    'name' : 'Province & District in crm',
-    'version' : '1.0',
+    'name': 'Province & District in crm',
+    'version': '1.0',
     'category': 'Localization\Peru',
-    'depends' : ['crm', 'l10n_pe_toponyms'],
-    'author' : 'Vauxoo',
+    'depends': ['crm', 'l10n_pe_toponyms'],
+    'author': 'Vauxoo',
     'description': """
         This module add the fields that require the address of partner in the l10n_pe in crm
     """,
-    "website" : "http://www.vauxoo.com/",
+    "website": "http://www.vauxoo.com/",
     'data': [
         'view/crm_view.xml',
     ],

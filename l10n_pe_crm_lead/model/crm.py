@@ -25,12 +25,13 @@
 #############################################################################
 from openerp.osv import osv, fields
 
+
 class crm_lead(osv.osv):
     _inherit = "crm.lead"
-    
+
     _columns = {
         'l10n_pe_province_id': fields.many2one("res.country.province", 'Province',
-            domain="[('state_id','=',state_id)]"),
+                                               domain="[('state_id','=',state_id)]"),
         'l10n_pe_district_id': fields.many2one("res.country.district", 'District',
-            domain="[('province_id','=',l10n_pe_province_id)]"),
+                                               domain="[('province_id','=',l10n_pe_province_id)]"),
     }
