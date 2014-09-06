@@ -44,14 +44,14 @@ From git@github.com:Vauxoo/odoo-peru.git
     "website": "http://www.vauxoo.com",
     "license": "AGPL-3",
     "depends": [
-#               "l10n_pe_add_series_field",
-#               "l10n_pe_base_vat_split",
-#               "l10n_pe_crm_lead",
-#               "l10n_pe_invoice",
-#               "l10n_pe_multifunctions",
-#               "l10n_pe_sale",
+                # "l10n_pe_add_series_field",
+                # "l10n_pe_base_vat_split",
+                # "l10n_pe_crm_lead",
+                # "l10n_pe_invoice",
+                # "l10n_pe_multifunctions",
+                # "l10n_pe_sale",
                 "l10n_pe_toponyms",
-# End list of all oficial modules.
+                # End list of all oficial modules.
     ],
     "demo": [],
     "data": [],
