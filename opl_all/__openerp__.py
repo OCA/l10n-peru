@@ -43,41 +43,36 @@ This module will install for you:
     "license": "AGPL-3",
     "depends": [
                 "opl",
-                # Start
-                # list
-                # of
-                # all
-                # oficial
-                # modules
+#                Start list of all oficial modules
                 "account",
                 "auth_openid",
                 "event",
                 "l10n_bo",
                 "l10n_pe",
                 "pad_project",
-                #"project_mrp",    [Migration V8]
+#                "project_mrp",    [Migration V8]
                 "account_accountant",
                 "auth_signup",
-                #"event_moodle",    [Migration V8]
+#                 "event_moodle",    [Migration V8]
                 "l10n_br",
                 "l10n_pl",
-                #"plugin",  [Migration V8]
+#                 "plugin",  [Migration V8]
                 "project_timesheet",
                 "account_analytic_analysis",
                 "base_action_rule",
                 "event_sale",
                 "l10n_ca",
                 "l10n_pt",
-                #"plugin_outlook",  [Migration V8]
+#                 "plugin_outlook",  [Migration V8]
                 "purchase",
                 "account_analytic_default",
-                #"base_calendar",   [Migration V8]
+#                 "base_calendar",   [Migration V8]
                 "fetchmail",
                 "l10n_ch",
                 "l10n_ro",
-                #"plugin_thunderbird",  [Migration V8]
-                # "purchase_analytic_plans",#Error to fix
-                # "account_analytic_plans",#Error to fix
+#                 "plugin_thunderbird",  [Migration V8]
+#                 "purchase_analytic_plans",#Error to fix
+#                 "account_analytic_plans",#Error to fix
                 "base_gengo",
                 "fleet",
                 "l10n_cl",
@@ -86,17 +81,17 @@ This module will install for you:
                 "purchase_double_validation",
                 "account_anglo_saxon",
                 "base_iban",
-                #"google_base_account", [Migration V8]
+#                "google_base_account", [Migration V8]
                 "l10n_cn",
                 "l10n_syscohada",
                 "portal",
                 "purchase_requisition",
                 "account_asset",
                 "base_import",
-                #"google_docs", [Migration V8]
+#                "google_docs", [Migration V8]
                 "l10n_co",
                 "l10n_th",
-                #"portal_anonymous",    [Migration V8]
+#                "portal_anonymous",    [Migration V8]
                 "report_intrastat",
                 "account_bank_statement_extensions",
                 "base_report_designer",
@@ -110,22 +105,22 @@ This module will install for you:
                 "hr_attendance",
                 "l10n_de",
                 "l10n_uk",
-                #"portal_crm",  [Migration V8]
+#                "portal_crm",  [Migration V8]
                 "resource",
                 "account_cancel",
-                #"base_status", [Migration V8]
+#                "base_status", [Migration V8]
                 "hr_contract",
                 "l10n_ec",
                 "l10n_us",
-                #"portal_event",    [Migration V8]
+#                "portal_event",    [Migration V8]
                 "sale",
                 "account_chart",
                 "base_vat",
                 "hr_evaluation",
                 "l10n_es",
                 "l10n_uy",
-                #"portal_hr_employees", [Migration V8]
-                # "sale_analytic_plans",# Error to fix
+#                "portal_hr_employees", [Migration V8]
+#                "sale_analytic_plans",# Error to fix
                 "account_check_writing",
                 "board",
                 "hr_expense",
@@ -133,7 +128,7 @@ This module will install for you:
                 "l10n_ve",
                 "portal_project",
                 "sale_crm",
-                #"account_followup",    [Migration V8]
+#                "account_followup",    [Migration V8]
                 "claim_from_delivery",
                 "hr_holidays",
                 "l10n_fr",
@@ -145,9 +140,9 @@ This module will install for you:
                 "hr_payroll",
                 "l10n_fr_hr_payroll",
                 "lunch",
-                #"portal_project_long_term",    [Migration V8]
+#                "portal_project_long_term",    [Migration V8]
                 "sale_margin",
-                #"account_report_company",  [Migration V8]
+#                "account_report_company",  [Migration V8]
                 "crm",
                 "hr_payroll_account",
                 "l10n_fr_rib",
@@ -166,11 +161,11 @@ This module will install for you:
                 "hr_timesheet",
                 "l10n_gt",
                 "marketing_campaign",
-                #"process", [Migration V8]
+#                "process", [Migration V8]
                 "sale_stock",
                 "account_voucher",
-                # "crm_partner_assign",#Make a error of geolocalization:
-                # https://bugs.launchpad.net/openobject-addons/+bug/1295545
+#                "crm_partner_assign",#Make a error of geolocalization:
+#                https://bugs.launchpad.net/openobject-addons/+bug/1295545
                 "hr_timesheet_invoice",
                 "l10n_hn",
                 "marketing_campaign_crm_demo",
@@ -184,8 +179,8 @@ This module will install for you:
                 "product",
                 "stock",
                 "analytic_contract_hr_expense",
-                #"crm_todo",    [Migration V8]
-                #"idea",    [Migration V8]
+#                "crm_todo",    [Migration V8]
+#                "idea",    [Migration V8]
                 "l10n_in",
                 "mrp",
                 "product_expiry",
@@ -193,18 +188,18 @@ This module will install for you:
                 "analytic_user_function",
                 "decimal_precision",
                 "knowledge",
-                # "l10n_in_hr_payroll",# Error
-                # https://gist.github.com/moylop260/21f158bd24a59ade583b
+#                "l10n_in_hr_payroll",# Error
+#                https://gist.github.com/moylop260/21f158bd24a59ade583b
                 "mrp_byproduct",
-                #"product_manufacturer",    [Migration V8]
-                # "stock_location", #Error to fix
+#                "product_manufacturer",    [Migration V8]
+#                "stock_location", #Error to fix
                 "anonymization",
                 "delivery",
                 "l10n_ar",
                 "l10n_it",
-                #"mrp_jit", [Migration V8]
+#                "mrp_jit", [Migration V8]
                 "product_margin",
-                #"stock_no_autopicking",    [Migration V8]
+#                "stock_no_autopicking",    [Migration V8]
                 "association",
                 "document",
                 "l10n_at",
@@ -212,22 +207,22 @@ This module will install for you:
                 "mrp_operations",
                 "product_visible_discount",
                 "subscription",
-                #"audittrail",  [Migration V8]
-                # "document_ftp", # No test
+#                "audittrail",  [Migration V8]
+#                "document_ftp", # No test
                 "l10n_be",
                 "l10n_ma",
                 "mrp_repair",
                 "project",
                 "survey",
                 "auth_crypt",
-                #"document_page",   [Migration V8]
+#                "document_page",   [Migration V8]
                 "l10n_be_coda",
                 "l10n_multilang",
                 "multi_company",
-                #"project_gtd", [Migration V8]
+#                "project_gtd", [Migration V8]
                 "warning",
-                # "auth_ldap", # No test
-                #"document_webdav", [Migration V8]
+#                "auth_ldap", # No test
+#                "document_webdav", [Migration V8]
                 "l10n_be_hr_payroll",
                 "l10n_mx",
                 "note",
@@ -240,19 +235,14 @@ This module will install for you:
                 "note_pad",
                 "project_issue_sheet",
                 "web_linkedin",
-                #"auth_oauth_signup",   [Migration V8]
+#                "auth_oauth_signup",   [Migration V8]
                 "email_template",
                 "l10n_be_invoice_bba",
                 "l10n_pa",
                 "pad",
-                #"project_long_term",   [Migration V8]
-                #"web_shortcuts"    [Migration V8]
-                # End
-                # list
-                # of
-                # all
-                # oficial
-                # modules
+#                "project_long_term",   [Migration V8]
+#                "web_shortcuts"    [Migration V8]
+#               End list of all oficial modules.
     ],
     "demo": [],
     "data": [],
