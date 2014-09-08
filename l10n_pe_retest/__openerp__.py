@@ -25,10 +25,10 @@
 ##############################################################################
 
 {
-    'name' : 'Re-test',
-    'version' : '1.1',
+    'name': 'Re-test',
+    'version': '1.1',
     'category': 'Test',
-    'depends' : [
+    'depends': [
         'warning',
         'l10n_pe_invoice',
         'l10n_pe_sale',
@@ -36,8 +36,8 @@
         'sale_stock',
         'sale',
         'purchase',
-        ],
-    'author' : 'Vauxoo',
+    ],
+    'author': 'Vauxoo',
     'description': """
 Before of install modules l10n_pe_invoice and l10n_pe_sale, this module test
 ============================================================================
