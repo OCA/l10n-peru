@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-###########################################################################
+##
 #    Module Writen to OpenERP, Open Source Management Solution
 #
 #    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
 #    info@vauxoo.com
-############################################################################
+##
 #    Coded by: Luis Torres (luis_t@vauxoo.com)
-############################################################################
+##
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,17 +22,18 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#############################################################################
+##
 {
-    'name' : 'l10n_pe Geopolitical Distribution',
-    'version' : '1.0',
+    'name': 'l10n_pe Geopolitical Distribution',
+    'version': '1.0',
     'category': 'Localization\Peru',
-    'depends' : ['base'],
-    'author' : 'Vauxoo',
+    'depends': ['base'],
+    'author': 'Vauxoo',
     'description': """
-    This module add the fields that require the address of partner in the l10n_pe
+        This module add the fields that require the address of partner in the
+        l10n_pe.
     """,
-    "website" : "http://www.vauxoo.com/",
+    "website": "http://www.vauxoo.com/",
     'data': [
         'security/l10n_pe_security.xml',
         'data/res_country_data.xml',

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-                                                       #
-###############################################################################
+##
 #    Module Writen to OpenERP, Open Source Management Solution                #
 #                                                                             #
 #    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com                        #
 #    All Rights Reserved.                                                     #
 #    info@vauxoo.com                                                          #
-###############################################################################
+##
 #    Coded by: Sabrina Romero (sabrina@vauxoo.com)                            #
-###############################################################################
+##
 #                                                                             #
 #    This program is free software: you can redistribute it and/or modify     #
 #    it under the terms of the GNU Affero General Public License as           #
@@ -22,7 +22,7 @@
 #    You should have received a copy of the GNU Affero General Public License #
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
 #                                                                             #
-###############################################################################
+##
 
 {"name": "OpenERP Peruvian Localization",
     "version": "",
@@ -44,14 +44,14 @@ From git@github.com:Vauxoo/odoo-peru.git
     "website": "http://www.vauxoo.com",
     "license": "AGPL-3",
     "depends": [
-                "l10n_pe_add_series_field",
-                "l10n_pe_base_vat_split",
-                "l10n_pe_crm_lead",
-                "l10n_pe_invoice",
-                "l10n_pe_multifunctions",
-                "l10n_pe_sale",
+                # "l10n_pe_add_series_field",
+                # "l10n_pe_base_vat_split",
+                # "l10n_pe_crm_lead",
+                # "l10n_pe_invoice",
+                # "l10n_pe_multifunctions",
+                # "l10n_pe_sale",
                 "l10n_pe_toponyms",
-                # End list of all oficial modules
+                # End list of all oficial modules.
     ],
     "demo": [],
     "data": [],
