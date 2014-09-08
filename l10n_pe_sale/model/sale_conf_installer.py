@@ -27,12 +27,13 @@
 
 from openerp.osv import fields, osv
 
+
 class sale_configuration(osv.osv_memory):
     _inherit = 'sale.config.settings'
-    
+
     _columns = {
-    'limit_amount': fields.integer('limit to require a validation of ruc or dni',
-        help="Amount after which validation of sale is required."),
+        'limit_amount': fields.integer('limit to require a validation of ruc or dni',
+                                       help="Amount after which validation of sale is required."),
     }
 
     _defaults = {
@@ -41,19 +42,23 @@ class sale_configuration(osv.osv_memory):
 
     def get_default_limit_amount(self, cr, uid, fields, context=None):
         ir_model_data = self.pool.get('ir.model.data')
-        transition = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
+        transition = ir_model_data.get_object(
+            cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
         value = transition.condition.split()
         return {'limit_amount': int(value[2])}
 
     def set_limit_amount(self, cr, uid, ids, context=None):
         ir_model_data = self.pool.get('ir.model.data')
         config = self.browse(cr, uid, ids[0], context)
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
+        waiting = ir_model_data.get_object(
+            cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
         waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_wait_router')
+        waiting = ir_model_data.get_object(
+            cr, uid, 'l10n_pe_sale', 'trans_wait_router')
         waiting.write({'condition': 'amount_total < %s' % config.limit_amount})
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_sent_wait')
+        waiting = ir_model_data.get_object(
+            cr, uid, 'l10n_pe_sale', 'trans_sent_wait')
         waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
-        waiting = ir_model_data.get_object(cr, uid, 'l10n_pe_sale', 'trans_wait_check')
+        waiting = ir_model_data.get_object(
+            cr, uid, 'l10n_pe_sale', 'trans_wait_check')
         waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
-

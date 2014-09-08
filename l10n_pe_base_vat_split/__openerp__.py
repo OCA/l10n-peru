@@ -26,21 +26,21 @@
 
 {
     'name': 'VAT Number Split Peru',
-    "version" : "1.0",
-    "author" : "Vauxoo",
-    "category" : "Localization/Peru",
+    "version": "1.0",
+    "author": "Vauxoo",
+    "category": "Localization/Peru",
     "description" : """
 This module add Split VAT Number to partner.
 ======================================================================
 Split VAT Number to l10n-VAT in a new field calculated
 
 """,
-    "website" : "http://www.vauxoo.com/",
-    "license" : "AGPL-3",
-    "depends" : ["base_vat"],
-    "demo" : [],
-    "data" : [],
-    "test" : [],
-    "installable" : True,
-    "active" : False,
+    "website": "http://www.vauxoo.com/",
+    "license": "AGPL-3",
+    "depends": ["base_vat"],
+    "demo": [],
+    "data": [],
+    "test": [],
+    "installable": True,
+    "active": False,
 }

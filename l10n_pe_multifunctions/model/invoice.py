@@ -35,6 +35,7 @@ import unicodedata
 
 
 class account_invoice(osv.Model):
+
     """
     This class adds methods for validations to account.invoice model.
     """
@@ -46,5 +47,5 @@ class account_invoice(osv.Model):
             string without accents.
         """
         cadena = ''.join((c for c in unicodedata.normalize('NFD',
-                    unicode(cadena)) if unicodedata.category(c) != 'Mn'))
+                                                           unicode(cadena)) if unicodedata.category(c) != 'Mn'))
         return cadena.decode()
