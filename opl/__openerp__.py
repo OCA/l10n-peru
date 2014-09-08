@@ -51,6 +51,7 @@ From git@github.com:Vauxoo/odoo-peru.git
                 "l10n_pe_multifunctions",
                 "l10n_pe_sale",
                 "l10n_pe_toponyms",
+                "l10n_pe_retest",
                 # End list of all oficial modules
     ],
     "demo": [],
