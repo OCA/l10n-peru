@@ -36,6 +36,7 @@
         'sale_stock',
         'sale',
         'purchase',
+        'project_mrp',
     ],
     'author': 'Vauxoo',
     'description': """
