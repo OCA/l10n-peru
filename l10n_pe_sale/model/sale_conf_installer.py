@@ -32,8 +32,9 @@ class sale_configuration(osv.osv_memory):
     _inherit = 'sale.config.settings'
 
     _columns = {
-        'limit_amount': fields.integer('limit to require a validation of ruc or dni',
-                                       help="Amount after which validation of sale is required."),
+        'limit_amount': fields.integer(
+            'limit to require a validation of ruc or dni',
+            help="Amount after which validation of sale is required."),
     }
 
     _defaults = {
@@ -52,13 +53,16 @@ class sale_configuration(osv.osv_memory):
         config = self.browse(cr, uid, ids[0], context)
         waiting = ir_model_data.get_object(
             cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
-        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
+        waiting.write(
+            {'condition': 'amount_total >= %s' % config.limit_amount})
         waiting = ir_model_data.get_object(
             cr, uid, 'l10n_pe_sale', 'trans_wait_router')
         waiting.write({'condition': 'amount_total < %s' % config.limit_amount})
         waiting = ir_model_data.get_object(
             cr, uid, 'l10n_pe_sale', 'trans_sent_wait')
-        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
+        waiting.write(
+            {'condition': 'amount_total >= %s' % config.limit_amount})
         waiting = ir_model_data.get_object(
             cr, uid, 'l10n_pe_sale', 'trans_wait_check')
-        waiting.write({'condition': 'amount_total >= %s' % config.limit_amount})
+        waiting.write(
+            {'condition': 'amount_total >= %s' % config.limit_amount})
