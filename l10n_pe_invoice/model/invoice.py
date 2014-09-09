@@ -25,7 +25,7 @@
 ##############################################################################
 
 
-from openerp.osv import fields, osv
+from openerp.osv import osv
 from openerp.tools.translate import _
 
 
@@ -45,13 +45,17 @@ class account_invoice(osv.Model):
                         inv.user_id.company_id.partner_id.country_id and \
                         inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(
-                        inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                        inv.user_id.company_id.
+                        partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id and inv.user_id.company_id and \
                         inv.user_id.company_id.partner_id and \
                         inv.user_id.company_id.partner_id.vat:
-                    if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                    if (inv.user_id.company_id.
+                            partner_id.vat).lower()[0:2] == 'pe':
                         vat_pe = inv.user_id.company_id.partner_id.vat
-                if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                if not ((country and vat_pe) or
+                        (country and not vat_pe) or
+                        (not country and vat_pe)):
                     return True
                 elif partner.vat:
                     return True
@@ -72,15 +76,20 @@ class account_invoice(osv.Model):
                         inv.user_id.company_id.partner_id.country_id and \
                         inv.user_id.company_id.partner_id.country_id.name:
                     country = self.unaccented(
-                        inv.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                        inv.user_id.company_id.
+                        partner_id.country_id.name).lower() == 'peru'
                 if inv.user_id and inv.user_id.company_id and \
                         inv.user_id.company_id.partner_id and \
                         inv.user_id.company_id.partner_id.vat:
-                    if (inv.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                    if (inv.user_id.company_id.
+                            partner_id.vat).lower()[0:2] == 'pe':
                         vat_pe = inv.user_id.company_id.partner_id.vat
-                if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+                if not ((country and vat_pe) or
+                        (country and not vat_pe) or
+                        (not country and vat_pe)):
                     return True
-                elif (partner_company and partner.vat) or (not partner_company):
+                elif (partner_company and partner.vat) or
+                (not partner_company):
                     return True
                 else:
                     return False
