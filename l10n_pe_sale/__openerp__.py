@@ -28,7 +28,7 @@
     'name': 'RUC and DIN Validation on Sales',
     'version': '1.1',
     'category': 'Sale Management',
-    'depends': ['base', 'sale', 'base_vat', 'l10n_pe_multifunctions'],
+    'depends': ['base', 'sale', 'base_vat', 'l10n_pe_multifunctions', 'sale_stock'],
     'author': 'Vauxoo',
     'description': """
 Validation for sale when exceeding minimum amount.
