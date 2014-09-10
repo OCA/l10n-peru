@@ -29,7 +29,7 @@
     "version": "1.0",
     "author": "Vauxoo",
     "category": "Localization/Peru",
-    "description" : """
+    "description": """
 This module add Split VAT Number to partner.
 ======================================================================
 Split VAT Number to l10n-VAT in a new field calculated
