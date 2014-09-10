@@ -31,7 +31,7 @@ class ReTest(common.TransactionCase):
 
     def test_reload_test(self):
         if tools.config.options['test_enable']:
-            cr, uid = self.cr, self.uid
+            cr = self.cr
             module_info = modules.load_information_from_description_file(
                 "l10n_pe_retest")
             for dat in module_info.get('depends', []):
