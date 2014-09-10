@@ -44,8 +44,8 @@ class account_invoice(osv.Model):
                     if (len(ref_split) == 2):
                         ref_left = ref_split[0]
                         ref_right = ref_split[1]
-                        if re.match("[a-zA-Z0-9]+$", ref_left) is None or
-                        re.match("[0-9]+$", ref_right) is None:
+                        if re.match("[a-zA-Z0-9]+$", ref_left) is None or \
+                                re.match("[0-9]+$", ref_right) is None:
                             return False
                     else:
                         return False

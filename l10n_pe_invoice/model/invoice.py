@@ -88,8 +88,8 @@ class account_invoice(osv.Model):
                         (country and not vat_pe) or
                         (not country and vat_pe)):
                     return True
-                elif (partner_company and partner.vat) or
-                (not partner_company):
+                elif (partner_company and partner.vat) or \
+                        (not partner_company):
                     return True
                 else:
                     return False
