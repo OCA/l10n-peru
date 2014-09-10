@@ -24,7 +24,7 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp.osv import osv
 from openerp.tools.translate import _
 
 
@@ -43,13 +43,17 @@ class sale_order(osv.Model):
                     sale_order.user_id.company_id.partner_id.country_id and \
                     sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.pool.get('account.invoice').unaccented(
-                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                    sale_order.user_id.company_id.
+                    partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                     sale_order.user_id.company_id.partner_id and \
                     sale_order.user_id.company_id.partner_id.vat:
-                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                if (sale_order.user_id.company_id.
+                        partner_id.vat).lower()[0:2] == 'pe':
                     vat_pe = sale_order.user_id.company_id.partner_id.vat
-            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+            if not ((country and vat_pe) or
+                    (country and not vat_pe) or
+                    (not country and vat_pe)):
                 return True
             elif partner.vat:
                 return True
@@ -67,13 +71,17 @@ class sale_order(osv.Model):
                     sale_order.user_id.company_id.partner_id.country_id and \
                     sale_order.user_id.company_id.partner_id.country_id.name:
                 country = self.pool.get('account.invoice').unaccented(
-                    sale_order.user_id.company_id.partner_id.country_id.name).lower() == 'peru'
+                    sale_order.user_id.company_id.
+                    partner_id.country_id.name).lower() == 'peru'
             if sale_order.user_id and sale_order.user_id.company_id and \
                     sale_order.user_id.company_id.partner_id and \
                     sale_order.user_id.company_id.partner_id.vat:
-                if (sale_order.user_id.company_id.partner_id.vat).lower()[0:2] == 'pe':
+                if (sale_order.user_id.company_id.
+                        partner_id.vat).lower()[0:2] == 'pe':
                     vat_pe = sale_order.user_id.company_id.partner_id.vat
-            if not ((country and vat_pe) or (country and not vat_pe) or (not country and vat_pe)):
+            if not ((country and vat_pe) or
+                    (country and not vat_pe) or
+                    (not country and vat_pe)):
                 return True
             elif (partner_company and partner.vat) or (not partner_company):
                 return True

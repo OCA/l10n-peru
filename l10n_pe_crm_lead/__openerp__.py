@@ -30,7 +30,8 @@
     'depends': ['crm', 'l10n_pe_toponyms'],
     'author': 'Vauxoo',
     'description': """
-        This module add the fields that require the address of partner in the l10n_pe in crm
+        This module add the fields that require the address of partner in the
+        l10n_pe in crm
     """,
     "website": "http://www.vauxoo.com/",
     'data': [

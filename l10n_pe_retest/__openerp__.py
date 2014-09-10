@@ -1,12 +1,12 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
-#    Copyright (c) 2010 Vauxoo - http://www.vauxoo.com/
+#    Copyright (c) 2012 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
-#    info Vauxoo (info@vauxoo.com)
+#    info@vauxoo.com
 ############################################################################
-#    Coded by: vauxoo consultores (info@vauxoo.com)
+#    Coded by: Julio Serna (julio@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -23,26 +23,37 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
 
+{
+    'name': 'Re-test',
+    'version': '1.1',
+    'category': 'Test',
+    'depends': [
+        'warning',
+        'l10n_pe_invoice',
+        'l10n_pe_sale',
+        'account',
+        'sale_stock',
+        'sale',
+        'purchase',
+        'project_mrp',
+    ],
+    'author': 'Vauxoo',
+    'description': """
+Before of install modules l10n_pe_invoice and l10n_pe_sale, this module test
+============================================================================
 
-class res_partner(osv.Model):
-    _inherit = 'res.partner'
-
-    def _get_base_vat_split(self, cr, uid, ids, field_names=None, arg=False,
-                            context=None):
-        if context is None:
-            context = {}
-        res = {}
-        for partner in self.browse(cr, uid, ids, context=context):
-            res[partner.id] = partner.vat and partner.vat[3:] or False
-        return res
-
-    _columns = {
-        'vat_split': fields.function(
-            _get_base_vat_split, method=True, type='char', size=64,
-            string='VAT Split', store=True,
-            help='Remove the prefix of the country of the VAT'),
-    }
+    * Test of sale module
+    * Test of sale_stock module
+    * Test of account module
+    * Test of purchase module
+    """,
+    'website': 'http://www.openerp.com',
+    'data': [],
+    'test': [],
+    'demo': [],
+    'installable': True,
+    'auto_install': False
+}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -26,7 +26,6 @@
 
 
 from openerp.osv import fields, osv
-from openerp.tools.translate import _
 
 
 class account_journal(osv.Model):
@@ -34,6 +33,8 @@ class account_journal(osv.Model):
     _inherit = 'account.journal'
 
     _columns = {
-        'printer_series': fields.char('Printer Series', size=64, help="This will be used in reports\
-               of invoice and ticket"),
+        'printer_series': fields.char(
+            'Printer Series',
+            size=64,
+            help="This will be used in reports of invoice and ticket"),
     }
