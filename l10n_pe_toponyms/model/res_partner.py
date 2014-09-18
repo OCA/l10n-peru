@@ -48,9 +48,9 @@ class res_partner(osv.osv):
             'res.country')
         ids = country_obj.search(
             cr, uid, [('code', '=', 'PE'), ], limit=1)
-        id = ids and ids[
+        new_id = ids and ids[
             0] or False
-        return id
+        return new_id
 
     def fields_view_get_address(self, cr, uid, arch, context=None):
         if context is None:
