@@ -128,7 +128,8 @@ This module will install for you:
                 "l10n_ve",
                 "portal_project",
                 "sale_crm",
-                "account_followup",
+                # "account_followup",
+                # https://github.com/odoo/odoo-extra/issues/37
                 "claim_from_delivery",
                 "hr_holidays",
                 "l10n_fr",
