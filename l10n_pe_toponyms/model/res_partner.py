@@ -80,7 +80,7 @@ class res_partner(osv.osv):
         fmt = fmt and fmt.address_format
         city = '<field name="city" placeholder="City..." style="width:\
                     40%%" modifiers="{&quot;invisible&quot;: true}"/>'
-        for name, field in self._columns.items():
+        for name, _ in self._columns.items():
             if name == 'city_id':
                 city = '<field name="city" \
                         modifiers="{&quot;invisible&quot;: true}" \
