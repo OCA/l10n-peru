@@ -48,9 +48,8 @@ class res_partner(osv.osv):
             'res.country')
         ids = country_obj.search(
             cr, uid, [('code', '=', 'PE'), ], limit=1)
-        id = ids and ids[
-            0] or False
-        return id
+        ids = ids and ids[0] or False
+        return ids
 
     def fields_view_get_address(self, cr, uid, arch, context=None):
         if context is None:
@@ -80,7 +79,7 @@ class res_partner(osv.osv):
         fmt = fmt and fmt.address_format
         city = '<field name="city" placeholder="City..." style="width:\
                     40%%" modifiers="{&quot;invisible&quot;: true}"/>'
-        for name, field in self._columns.items():
+        for name in self._columns.keys():
             if name == 'city_id':
                 city = '<field name="city" \
                         modifiers="{&quot;invisible&quot;: true}" \
