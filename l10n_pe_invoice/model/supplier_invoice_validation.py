@@ -38,10 +38,10 @@ class account_invoice(osv.Model):
     def _check_reference_field(self, cr, uid, ids, context=None):
         invoices = self.browse(cr, uid, ids)
         for invoice in invoices:
-            if (invoice.type == 'in_invoice'):
-                if(invoice.supplier_invoice_number):
+            if invoice.type == 'in_invoice':
+                if invoice.supplier_invoice_number:
                     ref_split = invoice.supplier_invoice_number.split('-')
-                    if (len(ref_split) == 2):
+                    if len(ref_split) == 2:
                         ref_left = ref_split[0]
                         ref_right = ref_split[1]
                         if re.match("[a-zA-Z0-9]+$", ref_left) is None or \

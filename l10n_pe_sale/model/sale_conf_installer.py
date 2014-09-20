@@ -41,7 +41,7 @@ class sale_configuration(osv.osv_memory):
         'limit_amount': 700,
     }
 
-    def get_default_limit_amount(self, cr, uid, fields, context=None):
+    def get_default_limit_amount(self, cr, uid, fields_list, context=None):
         ir_model_data = self.pool.get('ir.model.data')
         transition = ir_model_data.get_object(
             cr, uid, 'l10n_pe_sale', 'trans_draft_wait')
