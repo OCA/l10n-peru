@@ -23,4 +23,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-import crm_lead_to_opportunity
+from . import crm_lead_to_opportunity

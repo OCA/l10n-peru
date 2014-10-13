@@ -24,5 +24,5 @@
 #
 ##############################################################################
 
-import sale
-import sale_conf_installer
+from . import sale
+from . import sale_conf_installer
