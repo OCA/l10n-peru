@@ -24,6 +24,6 @@
 #
 ##############################################################################
 
-import invoice
-import invoice_conf_installer
-import supplier_invoice_validation
+from . import invoice
+from . import invoice_conf_installer
+from . import supplier_invoice_validation
