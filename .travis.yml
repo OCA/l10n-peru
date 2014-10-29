@@ -17,8 +17,6 @@ install:
   - ${TRAVIS_BUILD_DIR}/travis/travis_install_pe_nightly ${VERSION}
 
 script:
-  #- travis_run_flake8
-  - travis_run_pylint
   - travis_run_tests ${VERSION}
 
 after_success:
