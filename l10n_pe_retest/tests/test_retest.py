@@ -51,7 +51,7 @@ class ReTest(common.TransactionCase):
                             tools.convert_yaml_import(
                                 cr, dat, fp, kind="test", idref={},
                                 mode="init")
-                        except Exception:
+                        except BaseException:
                             _logger.exception(
                                 'module %s: an exception occurred in a test',
                                 dat)
