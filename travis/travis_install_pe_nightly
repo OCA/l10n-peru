@@ -2,7 +2,7 @@
 
 ##ODOO PACKAGES#FIXME: This package should be within the main script
 sudo pip install PyWebDAV mygengo
-sudo apt-get install pdftotext antiword
+sudo apt-get install pdftotext antiword Wkhtmltopdf
 
 #webkit patched process
 mkdir -p /tmp/webkit_patched
