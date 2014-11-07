@@ -39,7 +39,7 @@ class res_partner(osv.osv):
     '''
     _inherit = 'res.partner'
 
-    def vat_change(self, cr, uid, ids, value, context=None):
+    def button_check_vat(self, cr, uid, ids, context=None):
         '''
         Update name & address partner by SUNAT
         @param self: The object pointer.
@@ -51,21 +51,29 @@ class res_partner(osv.osv):
         '''
         if context is None:
             context = {}
-        res = super(res_partner, self).vat_change(
-            cr, uid, ids, value, context=context)
-        if value and len(value) == 11:
-            link = 'http://www.sunat.gob.pe/w/wapS01Alias?ruc=%s' % value
-            cliente = requests.get(link)
-            cliente = cliente.text.replace('\r', '').replace('\n', '').replace(
-                '\t', '')
-            root = html.fromstring(cliente)
-            if root[2].attrib['id'] == 'frstcard':
-                name = root[2][0][0].text_content().split('-')
-                street = root[2][0][9].text_content()
-                res.get('value', {}).update(
-                    {'name': name[1][1:-1],
-                     'street': street[9:]}
-                )
-            else:
-                raise osv.except_osv(_('Error!'), _('Invalid RUC'))
+        res = super(res_partner, self).button_check_vat(
+            cr, uid, ids, context=context)
+        for partner in self.browse(cr, uid, ids, context=context):
+            if partner.vat:
+                vat = partner.vat[3:]
+                if len(vat) == 11:
+                    link = 'http://www.sunat.gob.pe/w/wapS01Alias?ruc=%s' % vat
+                    client = requests.get(link)
+                    client = client.text.replace('\r', '').replace(
+                        '\n', '').replace('\t', '')
+                    root = html.fromstring(client)
+                    if root[2].attrib['id'] == 'frstcard':
+                        name = root[2][0][0].text_content().split('-')
+                        street = root[2][0][9].text_content()
+                        if root[2][0][4].text_content().split(
+                                '.')[1] == 'ACTIVO':
+                            partner.write({'name': name[1][1:-1],
+                                           'street': street[9:]})
+                        else:
+                            raise osv.except_osv(_('Error!'), _(
+                                'Inactive RUC'))
+                    else:
+                        raise osv.except_osv(_('Error!'), _('Invalid RUC'))
+                else:
+                    raise osv.except_osv(_('Error!'), _('Invalid RUC'))
         return res
