@@ -5,6 +5,7 @@ sudo pip install PyWebDAV mygengo
 sudo apt-get install pdftotext antiword
 
 #webkit patched process
+sudo apt-get install wkhtmltopdf
 mkdir -p /tmp/webkit_patched
 wget -O /tmp/webkit_patched/wkhtmltopdf.tar.bz2 https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
 bzip2 -dc /tmp/webkit_patched/wkhtmltopdf.tar.bz2 | tar -xvO >/tmp/webkit_patched/webkit-patched
