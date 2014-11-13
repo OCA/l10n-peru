@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-##
+#
 #    Module Writen to OpenERP, Open Source Management Solution
 #
 #    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
 #    info@vauxoo.com
-##
+#
 #    Coded by: Luis Torres (luis_t@vauxoo.com)
-##
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,6 +22,29 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##
-from . import res_partner
-from . import res_company
+#
+{
+    "name": "Validation RUC SUNAT ",
+    "version": "1.0",
+    "author": "Vauxoo",
+    "category": "Localization\\Peru",
+    "description": """
+This module adds functionality to validate de RUC with SUNAT, and get data to
+partner
+
+""",
+    "website": "http://www.vauxoo.com/",
+    "license": "",
+    "depends": [
+        "account"
+    ],
+    "demo": [],
+    "data": [],
+    "test": [],
+    "js": [],
+    "css": [],
+    "qweb": [],
+    "installable": True,
+    "auto_install": False
+}
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
