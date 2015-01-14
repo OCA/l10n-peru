@@ -45,6 +45,7 @@ class account_invoice(osv.Model):
             This method receives a string and returns the same
             string without accents.
         """
-        cadena = ''.join((c for c in unicodedata.normalize('NFD',
-                    unicode(cadena)) if unicodedata.category(c) != 'Mn'))
+        cadena = ''.join((c for c in unicodedata
+                          .normalize('NFD', unicode(cadena))
+                          if unicodedata.category(c) != 'Mn'))
         return cadena.decode()
