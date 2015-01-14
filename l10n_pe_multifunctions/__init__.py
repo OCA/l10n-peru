@@ -23,28 +23,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.    #
 #                                                                             #
 ###############################################################################
-"""
-This file adds validations that will be used in several modules
-of the Peruvian location. In this case unaccented method its added
-in account.invoice model for l10n_pe_invoice and l10n_pe_sale.
-"""
 
-from openerp.osv import osv
-
-import unicodedata
-
-
-class account_invoice(osv.Model):
-    """
-    This class adds methods for validations to account.invoice model.
-    """
-    _inherit = 'account.invoice'
-
-    def unaccented(self, cadena):
-        """
-            This method receives a string and returns the same
-            string without accents.
-        """
-        cadena = ''.join((c for c in unicodedata.normalize('NFD',
-                    unicode(cadena)) if unicodedata.category(c) != 'Mn'))
-        return cadena.decode()
+from . import model
