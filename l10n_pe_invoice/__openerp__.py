@@ -44,7 +44,7 @@ in Invoice that exceeds minimum amount set by configuration wizard.
         'view/account_invoice_sup_inv_num_req.xml'
     ],
     'test': [
-        #  'test/limit_amount_inv.yml',
+        'test/limit_amount_inv.yml',
     ],
     'demo': [],
     'installable': True,

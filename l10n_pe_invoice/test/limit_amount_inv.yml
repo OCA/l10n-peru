@@ -5,6 +5,13 @@
     company = self.browse(cr, uid, ref("base.main_company"))
     self.write(cr, uid, company.id, {'country_id': ref("base.pe"),})
 -
+  I set the country "Peru" to the partner.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': '', 'country_id': ref("base.pe")})
+
+-
   I set partner like not company and not vat.
 -
   !python {model: res.partner}: |
