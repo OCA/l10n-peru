@@ -6,7 +6,7 @@
 #    All Rights Reserved.
 #    info@vauxoo.com
 ############################################################################
-#    Coded by: Julio Serna (julio@vauxoo.com)
+#    Coded by: Luis Ernesto García Medina (ernesto_gm@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -24,31 +24,33 @@
 #
 ##############################################################################
 
-{
-    'name' : 'RUC and DNI Validation on Invoice',
-    'version' : '1.1',
-    'category': 'Invoice Management',
-    'depends' : ['base','account','base_vat','l10n_pe_multifunctions'],
-    'author' : 'Vauxoo',
-    'description': """
-Validation for invoice when exceeding minimum amount.
-=========================================================
 
-This module modifies the invoice workflow in order to validate RUC and DNI in Invoice that
-exceeds minimum amount set by configuration wizard.
-    """,
-    'website': 'http://www.openerp.com',
-    'data': [
-        'workflow/invoice_workflow.xml',
-        'view/invoice_conf_view.xml',
-        'view/account_invoice_sup_inv_num_req.xml'
-    ],
-    'test': [
-        'test/limit_amount_inv.yml'
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False
-}
+from openerp.osv import osv
+from openerp.tools.translate import _
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+import re
+
+
+class account_invoice(osv.Model):
+
+    _inherit = 'account.invoice'
+
+    def _check_reference_field(self, cr, uid, ids, context=None):
+        invoices = self.browse(cr, uid, ids)
+        for invoice in invoices:
+            if invoice.type == 'in_invoice':
+                if invoice.supplier_invoice_number:
+                    ref_split = invoice.supplier_invoice_number.split('-')
+                    if len(ref_split) == 2:
+                        ref_left = ref_split[0]
+                        ref_right = ref_split[1]
+                        if re.match("[a-zA-Z0-9]+$", ref_left) is None or\
+                                re.match("[0-9]+$", ref_right) is None:
+                            return False
+                    else:
+                        return False
+        return True
+
+    _constraints = [(_check_reference_field,
+                     _("Invalid value \nThe correct format is:\n [alphanumeric\
+                       value]-[numeric value]"), ['supplier_invoice_number'])]

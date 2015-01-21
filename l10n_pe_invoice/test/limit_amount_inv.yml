@@ -5,6 +5,13 @@
     company = self.browse(cr, uid, ref("base.main_company"))
     self.write(cr, uid, company.id, {'country_id': ref("base.pe"),})
 -
+  I set the country "Peru" to the partner.
+-
+  !python {model: res.partner}: |
+    partner = self.browse(cr, uid, ref("base.res_partner_3"))
+    self.write(cr, uid, partner.commercial_partner_id.id, {'is_company': False, 'vat': '', 'country_id': ref("base.pe")})
+
+-
   I set partner like not company and not vat.
 -
   !python {model: res.partner}: |
@@ -57,10 +64,10 @@
   I validate customer invoice
 -
   !python {model: account.invoice}: |
-    import netsvc
     from openerp.osv import osv
+    from openerp import workflow
+    wf_service = workflow
     inv = self.browse(cr, uid, ref("account_invoice_customer11"))
-    wf_service = netsvc.LocalService("workflow")
     try:
         self.show_message_ruc_dni2(cr, uid, [inv.id])
         wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
@@ -83,10 +90,10 @@
   I validate customer invoice again
 -
   !python {model: account.invoice}: |
-    import netsvc
     from openerp.osv import osv
+    from openerp import workflow
+    wf_service = workflow
     inv = self.browse(cr, uid, ref("account_invoice_customer11"))
-    wf_service = netsvc.LocalService("workflow")
     try:
         self.show_message_ruc_dni2(cr, uid, [inv.id])
         wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
@@ -114,10 +121,10 @@
   I validate customer invoice
 -
   !python {model: account.invoice}: |
-    import netsvc
     from openerp.osv import osv
+    from openerp import workflow
+    wf_service = workflow
     inv = self.browse(cr, uid, ref("account_invoice_customer12"))
-    wf_service = netsvc.LocalService("workflow")
     log("customer invoice amount is %s" % inv.amount_total)
     try:
         self.show_message_ruc_dni(cr, uid, [inv.id])
@@ -141,10 +148,10 @@
   I validate customer invoice order again
 -
   !python {model: account.invoice}: |
-    import netsvc
     from openerp.osv import osv
+    from openerp import workflow
+    wf_service = workflow
     inv = self.browse(cr, uid, ref("account_invoice_customer12"))
-    wf_service = netsvc.LocalService("workflow")
     try:
         self.show_message_ruc_dni(cr, uid, [inv.id])
         wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_open', cr)
