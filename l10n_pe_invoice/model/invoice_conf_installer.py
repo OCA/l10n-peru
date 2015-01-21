@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#    -*- coding: utf-8 -*-
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
@@ -33,8 +33,8 @@ class account_configuration(osv.osv_memory):
 
     _columns = {
         'limit_amount': fields.integer('limit to require a validation of ruc\
-                                                or dni', help="Amount after which \
-                                                validation of ivnoice is required."),
+                                        or dni', help="Amount after which \
+                                        validation of ivnoice is required."),
     }
 
     _defaults = {
@@ -77,4 +77,3 @@ class account_configuration(osv.osv_memory):
                                            'trans_wait_check')
         waiting.write({'condition': 'amount_total >= %s'
                        % config.limit_amount})
-
