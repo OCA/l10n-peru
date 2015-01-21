@@ -25,17 +25,17 @@
 ##############################################################################
 
 {
-    'name' : 'RUC and DNI Validation on Invoice',
-    'version' : '1.1',
+    'name': 'RUC and DNI Validation on Invoice',
+    'version': '1.1',
     'category': 'Invoice Management',
-    'depends' : ['base','account','base_vat','l10n_pe_multifunctions'],
-    'author' : 'Vauxoo',
+    'depends': ['base', 'account', 'base_vat', 'l10n_pe_multifunctions'],
+    'author': 'Vauxoo',
     'description': """
 Validation for invoice when exceeding minimum amount.
 =========================================================
 
-This module modifies the invoice workflow in order to validate RUC and DNI in Invoice that
-exceeds minimum amount set by configuration wizard.
+This module modifies the invoice workflow in order to validate RUC and DNI
+in Invoice that exceeds minimum amount set by configuration wizard.
     """,
     'website': 'http://www.openerp.com',
     'data': [

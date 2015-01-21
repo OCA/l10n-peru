@@ -25,28 +25,32 @@
 ##############################################################################
 
 
-from openerp.osv import fields, osv
+from openerp.osv import osv
 from openerp.tools.translate import _
 
 import re
+
+
 class account_invoice(osv.Model):
-    
+
     _inherit = 'account.invoice'
-    
+
     def _check_reference_field(self, cr, uid, ids, context=None):
-        invoices = self.browse(cr,uid, ids)
+        invoices = self.browse(cr, uid, ids)
         for invoice in invoices:
-            if (invoice.type == 'in_invoice'):
-                if(invoice.supplier_invoice_number):
+            if invoice.type == 'in_invoice':
+                if invoice.supplier_invoice_number:
                     ref_split = invoice.supplier_invoice_number.split('-')
-                    if (len(ref_split) == 2):
+                    if len(ref_split) == 2:
                         ref_left = ref_split[0]
                         ref_right = ref_split[1]
-                        if re.match("[a-zA-Z0-9]+$", ref_left) == None or re.match("[0-9]+$", ref_right) == None:
+                        if re.match("[a-zA-Z0-9]+$", ref_left) is None or\
+                                re.match("[0-9]+$", ref_right) is None:
                             return False
                     else:
                         return False
         return True
 
-    _constraints = [(_check_reference_field,_("Invalid value \nThe correct format is:\n [alphanumeric value]-[numeric value]")
-        ,['supplier_invoice_number']),]
+    _constraints = [(_check_reference_field,
+                     _("Invalid value \nThe correct format is:\n [alphanumeric\
+                       value]-[numeric value]"), ['supplier_invoice_number'])]
