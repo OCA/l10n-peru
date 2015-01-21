@@ -29,7 +29,7 @@ from openerp.osv import fields, osv
 
 class account_configuration(osv.osv_memory):
     _inherit = 'account.config.settings'
-    
+  
     _columns = {
     'limit_amount': fields.integer('limit to require a validation of ruc or dni',
         help="Amount after which validation of ivnoice is required."),
@@ -39,7 +39,7 @@ class account_configuration(osv.osv_memory):
         'limit_amount': 700,
     }
 
-    def get_default_limit_amount(self, cr, uid, fields, context=None):
+    def get_default_limit_amount(self, cr, uid, field, context=None):
         ir_model_data = self.pool.get('ir.model.data')
         transition = ir_model_data.get_object(cr, uid, 'l10n_pe_invoice', 'trans_draft_wait')
         value = transition.condition.split()
