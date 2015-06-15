@@ -6,7 +6,8 @@
 #    All Rights Reserved.
 #    info@vauxoo.com
 ##
-#    Coded by: Luis Torres (luis_t@vauxoo.com)
+#    Coded by: Edgard Pimentel (pimentelrojas@gmail.com)
+#              Luis Torres (luis_t@vauxoo.com)
 ##
 #
 #    This program is free software: you can redistribute it and/or modify

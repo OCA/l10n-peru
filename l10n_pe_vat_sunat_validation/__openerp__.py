@@ -26,7 +26,7 @@
 {
     "name": "Validation RUC SUNAT ",
     "version": "1.0",
-    "author": "Vauxoo",
+    "author": "Edgard Pimentel, Vauxoo",
     "category": "Localization\\Peru",
     "description": """
 This module adds functionality to validate de RUC with SUNAT, and get data to
