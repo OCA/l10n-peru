@@ -23,14 +23,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.tools.translate import _
 from openerp.osv import fields, osv
 
 
-class res_partner(osv.Model):
+class ResPartner(osv.Model):
     _inherit = 'res.partner'
 
-    def _get_base_vat_split(self, cr, uid, ids, field_names=None, arg=False, context=None):
+    def _get_base_vat_split(
+            self, cr, uid, ids, field_names=None, arg=False, context=None):
         if context is None:
             context = {}
         res = {}
@@ -39,9 +39,10 @@ class res_partner(osv.Model):
         return res
 
     _columns = {
-        'vat_split': fields.function(_get_base_vat_split, method=True,
-                    type='char', size=64, string='VAT Split', store=True,
-                    help='Remove the prefix of the country of the VAT'),
+        'vat_split': fields.function(
+            _get_base_vat_split, method=True, type='char', size=64,
+            string='VAT Split', store=True,
+            help='Remove the prefix of the country of the VAT'),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
