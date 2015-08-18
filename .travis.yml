@@ -1,26 +1,30 @@
 language: python
 
-build_image: vauxoo/odoo-80-image-shippable-auto
+sudo: false
 
 python:
   - "2.7"
 
+addons:
+  apt:
+    packages:
+      - expect-dev  # provides unbuffer utility
+      - python-lxml  # because pip installation is slow
+      - python-simplejson
+      - python-serial
+      - python-yaml
 env:
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" INCLUDE="opl_all"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
-  - VERSION="8.0" ODOO_REPO="OCA/OCB" INCLUDE="opl_all"
+  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="opl_all"
 
 virtualenv:
   system_site_packages: true
 
 install:
-  - git clone https://github.com/vauxoo/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+  - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly ${VERSION}
   - ${TRAVIS_BUILD_DIR}/travis/travis_install_pe_nightly ${VERSION}
 
 script:
-  - travis_run_tests ${VERSION}
+  - travis_wait travis_run_tests
 
-after_success:
-  coveralls
