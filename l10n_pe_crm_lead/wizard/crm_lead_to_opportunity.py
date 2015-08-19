@@ -23,14 +23,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-from openerp.osv import osv, fields
+from openerp.osv import osv
 
-class crm_lead(osv.osv):
-    _inherit = "crm.lead"
-    
-    _columns = {
-        'l10n_pe_province_id': fields.many2one("res.country.province", 'Province',
-            domain="[('state_id','=',state_id)]"),
-        'l10n_pe_district_id': fields.many2one("res.country.district", 'District',
-            domain="[('province_id','=',l10n_pe_province_id)]"),
-    }
+
+class CrmLead2opportunityPartner(osv.osv_memory):
+    _inherit = 'crm.lead2opportunity.partner'
+
+    def _create_partner(self, cr, uid, ids, context=None):
+        res = super(CrmLead2opportunityPartner, self)._create_partner(
+            cr, uid, ids, context=context)
+        if res:
+            crm_lead_obj = self.pool.get('crm.lead')
+            brw_crm = crm_lead_obj.browse(
+                cr, uid, [res.keys()[0]], context=context)[0]
+            self.pool.get('res.partner').write(
+                cr, uid, res.values()[0], {
+                    'l10n_pe_district_id':
+                        brw_crm.l10n_pe_district_id and
+                        brw_crm.l10n_pe_district_id.id or False,
+                    'l10n_pe_province_id':
+                        brw_crm.l10n_pe_province_id and
+                        brw_crm.l10n_pe_province_id.id or False},
+                context=context)
+        return res

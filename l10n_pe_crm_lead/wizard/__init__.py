@@ -23,24 +23,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-{
-    'name' : 'Province & District in crm',
-    'version' : '1.0',
-    'category': 'Localization\Peru',
-    'depends' : ['crm', 'l10n_pe_toponyms'],
-    'author' : 'Vauxoo',
-    'description': """
-        This module add the fields that require the address of partner in the l10n_pe in crm
-    """,
-    "website" : "http://www.vauxoo.com/",
-    'data': [
-        'view/crm_view.xml',
-    ],
-    'test': [
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False
-}
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from . import crm_lead_to_opportunity

@@ -1,12 +1,12 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
 #    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
-#    info Vauxoo (info@vauxoo.com)
+#    info@vauxoo.com
 ############################################################################
-#    Coded by: vauxoo consultores (info@vauxoo.com)
+#    Coded by: Luis Torres (luis_t@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,25 +22,26 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-
+#############################################################################
 {
-    'name': 'VAT Number Split Peru',
-    "version" : "1.0",
-    "author" : "Vauxoo",
-    "category" : "Localization/Peru",
-    "description" : """
-This module add Split VAT Number to partner.
-======================================================================
-Split VAT Number to l10n-VAT in a new field calculated
-
-""",
-    "website" : "http://www.vauxoo.com/",
-    "license" : "AGPL-3",
-    "depends" : ["base_vat"],
-    "demo" : [],
-    "data" : [],
-    "test" : [],
-    "installable" : True,
-    "active" : False,
+    'name': 'Province & District in crm',
+    'version': '1.0',
+    'category': 'Localization\Peru',
+    'depends': ['crm', 'l10n_pe_toponyms'],
+    'author': 'Vauxoo',
+    'description': """
+        This module add the fields that require the address
+        of partner in the l10n_pe in crm
+    """,
+    "website": "http://www.vauxoo.com/",
+    'data': [
+        'view/crm_view.xml',
+    ],
+    'test': [
+    ],
+    'demo': [],
+    'installable': True,
+    'auto_install': False
 }
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

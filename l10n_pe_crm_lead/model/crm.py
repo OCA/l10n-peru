@@ -1,12 +1,12 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
-#    Copyright (c) 2010 Vauxoo - http://www.vauxoo.com/
+#    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
 #    All Rights Reserved.
-#    info Vauxoo (info@vauxoo.com)
+#    info@vauxoo.com
 ############################################################################
-#    Coded by: vauxoo consultores (info@vauxoo.com)
+#    Coded by: Luis Torres (luis_t@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,5 +22,18 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-import model
+#############################################################################
+from openerp.osv import osv, fields
+
+
+class RrmLead(osv.osv):
+    _inherit = "crm.lead"
+
+    _columns = {
+        'l10n_pe_province_id': fields.many2one(
+            "res.country.province", 'Province',
+            domain="[('state_id','=',state_id)]"),
+        'l10n_pe_district_id': fields.many2one(
+            "res.country.district", 'District',
+            domain="[('province_id','=',l10n_pe_province_id)]"),
+    }

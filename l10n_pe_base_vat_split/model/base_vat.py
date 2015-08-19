@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
-#    Copyright (c) 2014 Vauxoo - http://www.vauxoo.com
+#    Copyright (c) 2010 Vauxoo - http://www.vauxoo.com/
 #    All Rights Reserved.
-#    info@vauxoo.com
+#    info Vauxoo (info@vauxoo.com)
 ############################################################################
-#    Coded by: Luis Torres (luis_t@vauxoo.com)
+#    Coded by: vauxoo consultores (info@vauxoo.com)
 ############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,27 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#############################################################################
-import model
-import wizard
+##############################################################################
+from openerp.osv import fields, osv
+
+
+class ResPartner(osv.Model):
+    _inherit = 'res.partner'
+
+    def _get_base_vat_split(
+            self, cr, uid, ids, field_names=None, arg=False, context=None):
+        if context is None:
+            context = {}
+        res = {}
+        for partner in self.browse(cr, uid, ids, context=context):
+            res[partner.id] = partner.vat and partner.vat[3:] or False
+        return res
+
+    _columns = {
+        'vat_split': fields.function(
+            _get_base_vat_split, method=True, type='char', size=64,
+            string='VAT Split', store=True,
+            help='Remove the prefix of the country of the VAT'),
+    }
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
