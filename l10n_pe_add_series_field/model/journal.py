@@ -28,7 +28,7 @@
 from openerp.osv import fields, osv
 
 
-class account_journal(osv.Model):
+class AccountJournal(osv.Model):
 
     _inherit = 'account.journal'
 

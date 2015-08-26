@@ -28,7 +28,7 @@ from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID
 
 
-class res_company(osv.Model):
+class ResCompany(osv.Model):
     _inherit = 'res.company'
 
     def _get_address_data(self, cr, uid, ids, field_names, arg, context=None):

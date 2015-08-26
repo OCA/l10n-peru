@@ -29,7 +29,7 @@ from openerp.tools.translate import _
 from lxml import etree
 
 
-class res_partner(osv.osv):
+class ResPartner(osv.osv):
     _inherit = 'res.partner'
 
     _columns = {
@@ -70,7 +70,7 @@ class res_partner(osv.osv):
             'Country...')
         city2 = _(
             'City...')
-        res = super(res_partner, self).fields_view_get_address(
+        res = super(ResPartner, self).fields_view_get_address(
             cr, uid, arch, context=context)
         user_obj = self.pool.get(
             'res.users')
@@ -161,7 +161,7 @@ class res_partner(osv.osv):
                 'force_email', False):
             view_id = self.pool.get('ir.model.data').get_object_reference(
                 cr, user, 'base', 'view_partner_simple_form')[1]
-        res = super(res_partner, self).fields_view_get(
+        res = super(ResPartner, self).fields_view_get(
             cr, user, view_id, view_type, context, toolbar=toolbar,
             submenu=submenu)
         if view_type == 'form':
@@ -176,7 +176,7 @@ class res_partner(osv.osv):
     }
 
 
-class res_country_province(osv.osv):
+class ResCountryProvince(osv.osv):
     _name = 'res.country.province'
 
     _columns = {
@@ -196,7 +196,7 @@ class res_country_province(osv.osv):
     ]
 
 
-class res_country_district(osv.osv):
+class ResCountryDistrict(osv.osv):
     _name = 'res.country.district'
 
     _columns = {

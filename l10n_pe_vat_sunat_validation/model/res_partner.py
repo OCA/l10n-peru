@@ -33,7 +33,7 @@ from lxml import html
 from openerp.tools.translate import _
 
 
-class res_partner(osv.osv):
+class ResPartner(osv.osv):
     '''
     Inherit res.partner to get your name & address from the xml returned by
     SUNAT
@@ -52,7 +52,7 @@ class res_partner(osv.osv):
         '''
         if context is None:
             context = {}
-        res = super(res_partner, self).button_check_vat(
+        res = super(ResPartner, self).button_check_vat(
             cr, uid, ids, context=context)
         for partner in self.browse(cr, uid, ids, context=context):
             if partner.vat:
