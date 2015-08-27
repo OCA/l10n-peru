@@ -34,7 +34,7 @@ from openerp.osv import osv
 import unicodedata
 
 
-class account_invoice(osv.Model):
+class AccountInvoice(osv.Model):
     """
     This class adds methods for validations to account.invoice model.
     """

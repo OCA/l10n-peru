@@ -28,7 +28,7 @@
 from openerp.osv import fields, osv
 
 
-class account_configuration(osv.osv_memory):
+class AccountConfiguration(osv.osv_memory):
     _inherit = 'account.config.settings'
 
     _columns = {
