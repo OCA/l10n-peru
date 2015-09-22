@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
@@ -26,14 +26,11 @@
 {
     'name': 'Province & District in crm',
     'version': '1.0',
-    'category': 'Localization\Peru',
+    'category': 'Localization/Peru',
     'depends': ['crm', 'l10n_pe_toponyms'],
     'author': 'Vauxoo',
-    'description': """
-        This module add the fields that require the address
-        of partner in the l10n_pe in crm
-    """,
-    "website": "http://www.vauxoo.com/",
+    'website': 'http://www.vauxoo.com/',
+    'license': 'AGPL-3',
     'data': [
         'view/crm_view.xml',
     ],
@@ -43,5 +40,3 @@
     'installable': True,
     'auto_install': False
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

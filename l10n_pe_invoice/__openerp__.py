@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
@@ -30,14 +30,8 @@
     'category': 'Invoice Management',
     'depends': ['base', 'account', 'base_vat', 'l10n_pe_multifunctions'],
     'author': 'Vauxoo',
-    'description': """
-Validation for invoice when exceeding minimum amount.
-=========================================================
-
-This module modifies the invoice workflow in order to validate RUC and DNI
-in Invoice that exceeds minimum amount set by configuration wizard.
-    """,
     'website': 'http://www.openerp.com',
+    "license": 'AGPL-3',
     'data': [
         'workflow/invoice_workflow.xml',
         'view/invoice_conf_view.xml',
@@ -50,5 +44,3 @@ in Invoice that exceeds minimum amount set by configuration wizard.
     'installable': True,
     'auto_install': False
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

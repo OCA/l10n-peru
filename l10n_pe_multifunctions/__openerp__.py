@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-                                                       #
+# coding: utf-8
 ###############################################################################
 #    Module Writen to OpenERP, Open Source Management Solution                #
 #                                                                             #
@@ -24,16 +24,11 @@
 #                                                                             #
 ###############################################################################
 
-{"name": "Multi Functions Module",
+{
+    "name": "Multi Functions Module",
     "version": "",
     "author": "Vauxoo",
     "category": "Localization/Peru",
-    "description": """
-Install all apps needed to comply with Peruvian laws
-====================================================
-This module adds validations that will be used in several modules
-of the Peruvian location.
-                    """,
     "website": "http://www.vauxoo.com",
     "license": "AGPL-3",
     "depends": ["base", "account"],
@@ -41,4 +36,4 @@ of the Peruvian location.
     "data": [],
     'test': [],
     "installable": True,
-    "active": False, }
+}

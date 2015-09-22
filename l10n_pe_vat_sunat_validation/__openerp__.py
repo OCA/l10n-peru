@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 #
 #    Module Writen to OpenERP, Open Source Management Solution
 #
@@ -29,11 +29,6 @@
     "version": "1.0",
     "author": "Edgard Pimentel, Vauxoo",
     "category": "Localization\\Peru",
-    "description": """
-This module adds functionality to validate de RUC with SUNAT, and get data to
-partner
-
-""",
     "website": "http://www.vauxoo.com/",
     "license": "",
     "depends": [
@@ -48,4 +43,3 @@ partner
     "installable": True,
     "auto_install": False
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

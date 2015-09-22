@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 #
 #    Module Writen to OpenERP, Open Source Management Solution
 #
@@ -30,13 +30,8 @@
     'category': 'Vauxoo',
     'depends': ['base', 'account'],
     'author': 'Vauxoo',
-    'description': """
-Printer Series field
-====================
-
-This module add Printer Series Field to Journals.
-    """,
     'website': 'http://www.vauxoo.com',
+    "license": 'AGPL-3',
     'data': [
         'view/account_journal_view.xml'
     ],
@@ -46,5 +41,3 @@ This module add Printer Series Field to Journals.
     'installable': True,
     'auto_install': False
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
