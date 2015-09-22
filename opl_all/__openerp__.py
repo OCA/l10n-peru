@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-                                                       #
+# coding: utf-8
 ##
 #    Module Writen to OpenERP, Open Source Management Solution                #
 #                                                                             #
@@ -24,21 +24,11 @@
 #                                                                             #
 ##
 
-{"name": "OpenERP Peruvian Localization",
+{
+    "name": "OpenERP Peruvian Localization",
     "version": "",
     "author": "Vauxoo",
     "category": "Localization/Application",
-    "description": """
-Install all apps needed to comply with Peruvian laws plus all oficial modules
-=============================================================================
-
-This module will install for you:
-
-  - OPL module
-
-  - All oficial modules (account, stock, mrp, etc.)
-
-                    """,
     "website": "http://www.vauxoo.com/",
     "license": "AGPL-3",
     "depends": [
@@ -248,4 +238,4 @@ This module will install for you:
     "data": [],
     'test': [],
     "installable": True,
-    "active": False, }
+}

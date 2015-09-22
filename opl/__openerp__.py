@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-                                                       #
+# coding: utf-8
 ##
 #    Module Writen to OpenERP, Open Source Management Solution                #
 #                                                                             #
@@ -24,23 +24,11 @@
 #                                                                             #
 ##
 
-{"name": "OpenERP Peruvian Localization",
+{
+    "name": "OpenERP Peruvian Localization",
     "version": "",
     "author": "Vauxoo",
     "category": "Localization/Application",
-    "description": """
-Install all apps needed to comply with Peruvian laws
-====================================================
-This module will install for you:
-
-From git@github.com:Vauxoo/odoo-peru.git
-    l10n_pe_add_series_field
-    l10n_pe_base_vat_split
-    l10n_pe_crm_lead
-    l10n_pe_invoice
-    l10n_pe_sale
-    l10n_pe_toponyms
-    """,
     "website": "http://www.vauxoo.com",
     "license": "AGPL-3",
     "depends": [
@@ -57,4 +45,4 @@ From git@github.com:Vauxoo/odoo-peru.git
     "data": [],
     'test': [],
     "installable": True,
-    "active": False, }
+}
