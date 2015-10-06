@@ -1,7 +1,10 @@
 language: python
 
 sudo: false
-
+cache:
+  apt: true
+  directories:
+    - $HOME/.pip-cache/
 python:
   - "2.7"
 
@@ -13,11 +16,19 @@ addons:
       - python-simplejson
       - python-serial
       - python-yaml
-env:
-  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="opl_all"
+#env:
+#  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="opl_all"
 
 virtualenv:
   system_site_packages: true
+
+env:
+  global:
+  - LINT_CHECK=0 TESTS="0" VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="opl_all"
+
+  matrix:
+  - LINT_CHECK=1
+  - TESTS="1"
 
 install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
@@ -28,3 +39,5 @@ install:
 script:
   - travis_wait travis_run_tests
 
+after_success:
+  - travis_after_tests_success
