@@ -30,7 +30,7 @@
     "author": "Edgard Pimentel, Vauxoo",
     "category": "Localization\\Peru",
     "website": "http://www.vauxoo.com/",
-    "license": "",
+    "license": 'AGPL-3',
     "depends": [
         "account"
     ],
