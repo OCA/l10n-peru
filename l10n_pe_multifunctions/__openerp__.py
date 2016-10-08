@@ -26,7 +26,7 @@
 
 {
     "name": "Multi Functions Module",
-    "version": "",
+    "version": "8.0.1.0.0",
     "author": "Vauxoo",
     "category": "Localization/Peru",
     "website": "http://www.vauxoo.com",
