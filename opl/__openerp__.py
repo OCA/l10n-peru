@@ -26,7 +26,7 @@
 
 {
     "name": "OpenERP Peruvian Localization",
-    "version": "",
+    "version": "8.0.1.0.0",
     "author": "Vauxoo",
     "category": "Localization/Application",
     "website": "http://www.vauxoo.com",
