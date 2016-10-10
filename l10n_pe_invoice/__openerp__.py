@@ -26,7 +26,7 @@
 
 {
     'name': 'RUC and DNI Validation on Invoice',
-    'version': '1.1',
+    'version': '8.0.1.1.0',
     'category': 'Invoice Management',
     'depends': ['base', 'account', 'base_vat', 'l10n_pe_multifunctions'],
     'author': 'Vauxoo',

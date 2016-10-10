@@ -25,7 +25,7 @@
 #############################################################################
 {
     'name': 'Province & District in crm',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'Localization/Peru',
     'depends': ['crm', 'l10n_pe_toponyms'],
     'author': 'Vauxoo',
