@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<!-- Este archivo fue construido con el script que se encuentra compartido públicamente en: -->
+<!-- https://github.com/JDSalcedo/scraping/blob/master/scraping_ubigeo_inei/main.py         -->
+<odoo noupdate="1">
+	<record id="res_country_state_01" model="res.country.state"><field name="name">Amazonas</field><field name="code">01</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_02" model="res.country.state"><field name="name">Áncash</field><field name="code">02</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_03" model="res.country.state"><field name="name">Apurímac</field><field name="code">03</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_04" model="res.country.state"><field name="name">Arequipa</field><field name="code">04</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_05" model="res.country.state"><field name="name">Ayacucho</field><field name="code">05</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_06" model="res.country.state"><field name="name">Cajamarca</field><field name="code">06</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_07" model="res.country.state"><field name="name">Callao</field><field name="code">07</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_08" model="res.country.state"><field name="name">Cusco</field><field name="code">08</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_09" model="res.country.state"><field name="name">Huancavelica</field><field name="code">09</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_10" model="res.country.state"><field name="name">Huánuco</field><field name="code">10</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_11" model="res.country.state"><field name="name">Ica</field><field name="code">11</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_12" model="res.country.state"><field name="name">Junín</field><field name="code">12</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_13" model="res.country.state"><field name="name">La Libertad</field><field name="code">13</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_14" model="res.country.state"><field name="name">Lambayeque</field><field name="code">14</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_15" model="res.country.state"><field name="name">Lima</field><field name="code">15</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_16" model="res.country.state"><field name="name">Loreto</field><field name="code">16</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_17" model="res.country.state"><field name="name">Madre de Dios</field><field name="code">17</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_18" model="res.country.state"><field name="name">Moquegua</field><field name="code">18</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_19" model="res.country.state"><field name="name">Pasco</field><field name="code">19</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_20" model="res.country.state"><field name="name">Piura</field><field name="code">20</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_21" model="res.country.state"><field name="name">Puno</field><field name="code">21</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_22" model="res.country.state"><field name="name">San Martín</field><field name="code">22</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_23" model="res.country.state"><field name="name">Tacna</field><field name="code">23</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_24" model="res.country.state"><field name="name">Tumbes</field><field name="code">24</field><field name="country_id" ref="base.pe"/></record>
+	<record id="res_country_state_25" model="res.country.state"><field name="name">Ucayali</field><field name="code">25</field><field name="country_id" ref="base.pe"/></record>
+</odoo>
