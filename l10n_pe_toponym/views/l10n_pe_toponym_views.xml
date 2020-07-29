@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Province -->
+    <record id="province_view_tree" model="ir.ui.view">
+        <field name="name">province.view.tree</field>
+        <field name="model">l10n_pe.res.country.province</field>
+        <field name="arch" type="xml">
+            <tree string="Provincia">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="province_view_form" model="ir.ui.view">
+        <field name="name">province.view.form</field>
+        <field name="model">l10n_pe.res.country.province</field>
+        <field name="arch" type="xml">
+            <form string="Provincia">
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_province" model="ir.actions.act_window">
+        <field name="name">Provincias</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_pe.res.country.province</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="province_view_tree"/>
+    </record>
+
+    <menuitem id="menu_province" action="action_province" parent="contacts.menu_localisation" sequence="3"/>
+
+    <!-- District -->
+    <record id="district_view_tree" model="ir.ui.view">
+        <field name="name">district.view.tree</field>
+        <field name="model">l10n_pe.res.country.district</field>
+        <field name="arch" type="xml">
+            <tree string="Distrito">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="province_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="district_view_form" model="ir.ui.view">
+        <field name="name">district.view.form</field>
+        <field name="model">l10n_pe.res.country.district</field>
+        <field name="arch" type="xml">
+            <form string="Distrito">
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="province_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_district" model="ir.actions.act_window">
+        <field name="name">Distritos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_pe.res.country.district</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="district_view_tree"/>
+    </record>
+
+    <menuitem id="menu_district" action="action_district" parent="contacts.menu_localisation" sequence="4"/>
+
+    <!-- Reorganization Country Group -->
+    <menuitem id="contacts.menu_country_group" action="base.action_country_group" name="Country Group" parent="contacts.menu_localisation" sequence="5"/>
+</odoo>

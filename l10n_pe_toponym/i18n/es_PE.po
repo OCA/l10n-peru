@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_pe_toponym
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-15 03:41+0000\n"
+"PO-Revision-Date: 2020-07-15 03:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Algo ha fallado importando los datos de Internet. Necesitará instalar los datos locales en su lugar."
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Copia local del archivo. Esta copia fue actualizada por última vez el 12/07/2020."
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__create_uid
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__create_uid
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__create_date
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__create_date
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__code
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__code
+msgid "Código"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: sql_constraint:l10n_pe.res.country.province:0
+msgid "Código de la Provincia debe ser único por Departamento!"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: sql_constraint:l10n_pe.res.country.district:0
+msgid "Código del Distrito debe ser único por Provincia!"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__state_id
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__state_id
+msgid "Departamento"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__display_name
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__display_name
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.district_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.district_view_tree
+msgid "Distrito"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.actions.act_window,name:l10n_pe_toponym.action_district
+#: model:ir.ui.menu,name:l10n_pe_toponym.menu_district
+msgid "Distritos"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Este asistente importará los datos del ubigeo peruano. Puede escoger importarlo de:"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__id
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__id
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__import_fail
+msgid "Import Fail"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.actions.act_window,name:l10n_pe_toponym.action_l10n_pe_toponym_import
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Importar Data de Ubigeo Peruano"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Importar desde Internet"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Importar desde el archivo local"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
+msgid "Internet (de INEI). Puede que esta fuente no esté disponible a\n"
+"                                partir de un momento dado. Necesitará la librería de Python xlrd."
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district____last_update
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province____last_update
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard____last_update
+msgid "Last Modified on"
+msgstr "Ultima Modificación en"
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__write_uid
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__write_uid
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado última vez por"
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__write_date
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__write_date
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__write_date
+msgid "Last Updated on"
+msgstr "Ultima Actualización"
+
+#. module: l10n_pe_toponym
+#: model:ir.model,name:l10n_pe_toponym.model_l10n_pe_res_country_district
+msgid "Lista de Distritos"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model,name:l10n_pe_toponym.model_l10n_pe_res_country_province
+msgid "Lista de Provincias"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__name
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__name
+msgid "Nombre"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__country_id
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__country_id
+msgid "País"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__province_id
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.province_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.province_view_tree
+msgid "Provincia"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.actions.act_window,name:l10n_pe_toponym.action_province
+#: model:ir.ui.menu,name:l10n_pe_toponym.menu_province
+msgid "Provincias"
+msgstr ""
+
+#. module: l10n_pe_toponym
+#: model:ir.model,name:l10n_pe_toponym.model_l10n_pe_toponym_import_wizard
+msgid "l10n_pe.toponym.import.wizard"
+msgstr ""
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_country_state_partner
+msgid "Fed. States"
+msgstr "Departamentos"
+
