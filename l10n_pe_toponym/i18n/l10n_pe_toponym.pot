@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* l10n_pe_toponym
+#	* l10n_pe_toponym
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-15 03:41+0000\n"
-"PO-Revision-Date: 2020-07-15 03:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -18,16 +15,12 @@ msgstr ""
 
 #. module: l10n_pe_toponym
 #: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
-msgid ""
-"Algo ha fallado importando los datos de Internet. Necesitará instalar los "
-"datos locales en su lugar."
+msgid "Algo ha fallado importando los datos de Internet. Necesitará instalar los datos locales en su lugar."
 msgstr ""
 
 #. module: l10n_pe_toponym
 #: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
-msgid ""
-"Copia local del archivo. Esta copia fue actualizada por última vez el "
-"12/07/2020."
+msgid "Copia local del archivo. Esta copia fue actualizada por última vez el 12/07/2020."
 msgstr ""
 
 #. module: l10n_pe_toponym
@@ -35,14 +28,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__create_uid
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__create_date
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__create_date
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__code
@@ -71,7 +64,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__display_name
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__display_name
 msgid "Display Name"
-msgstr "Nombre a Mostrar"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.district_view_form
@@ -87,9 +80,7 @@ msgstr ""
 
 #. module: l10n_pe_toponym
 #: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
-msgid ""
-"Este asistente importará los datos del ubigeo peruano. Puede escoger "
-"importarlo de:"
+msgid "Este asistente importará los datos del ubigeo peruano. Puede escoger importarlo de:"
 msgstr ""
 
 #. module: l10n_pe_toponym
@@ -122,10 +113,8 @@ msgstr ""
 
 #. module: l10n_pe_toponym
 #: model_terms:ir.ui.view,arch_db:l10n_pe_toponym.l10n_pe_toponym_import_wizard
-msgid ""
-"Internet (de INEI). Puede que esta fuente no esté disponible a\n"
-"                                partir de un momento dado. Necesitará la "
-"librería de Python xlrd."
+msgid "Internet (de INEI). Puede que esta fuente no esté disponible a\n"
+"                                partir de un momento dado. Necesitará la librería de Python xlrd."
 msgstr ""
 
 #. module: l10n_pe_toponym
@@ -133,21 +122,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province____last_update
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard____last_update
 msgid "Last Modified on"
-msgstr "Ultima Modificación en"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__write_uid
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__write_uid
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Actualizado última vez por"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_district__write_date
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_res_country_province__write_date
 #: model:ir.model.fields,field_description:l10n_pe_toponym.field_l10n_pe_toponym_import_wizard__write_date
 msgid "Last Updated on"
-msgstr "Ultima Actualización"
+msgstr ""
 
 #. module: l10n_pe_toponym
 #: model:ir.model,name:l10n_pe_toponym.model_l10n_pe_res_country_district
@@ -189,5 +178,3 @@ msgstr ""
 msgid "l10n_pe.toponym.import.wizard"
 msgstr ""
 
-#~ msgid "Fed. States"
-#~ msgstr "Departamentos"
